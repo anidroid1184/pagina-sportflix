@@ -8,33 +8,33 @@ body {
 
 @layer base {
   :root {
-    --background: 130 40% 97%; /* Very Pale Fern */
-    --foreground: 151 80% 18%; /* Dark Zuccini, slightly lightened for text */
+    --background: 137 37% 73%; /* #A2D1B0 - Bottom Left */
+    --foreground: 157 69% 14%; /* #0D3B2A - Top Right */
     --card: 0 0% 100%; /* White */
-    --card-foreground: 151 80% 18%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 151 80% 18%;
-    --primary: 130 42% 50%; /* Fern as primary (#5DAD70) */
-    --primary-foreground: 0 0% 100%; /* White */
-    --secondary: 130 35% 92%; /* Lighter Fern tint */
-    --secondary-foreground: 151 60% 30%; /* Muted Zuccini */
-    --muted: 130 30% 95%; /* Very Light Fern */
-    --muted-foreground: 151 50% 45%; /* Softer Zuccini */
-    --accent: 125 48% 58%; /* A brighter, distinct green (#67C68B) */
-    --accent-foreground: 151 80% 15%; /* Dark text on accent */
-    --destructive: 0 70% 50%; /* Standard Red */
-    --destructive-foreground: 0 0% 100%;
-    --border: 130 30% 88%; /* Light Fern border */
-    --input: 130 30% 88%; /* Input field border */
-    --ring: 130 42% 50%; /* Primary Fern for focus rings */
+    --card-foreground: 157 69% 14%; /* #0D3B2A */
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 157 69% 14%; /* #0D3B2A */
+    --primary: 146 36% 37%; /* #3E825B - Bottom Right */
+    --primary-foreground: 0 0% 98%; /* Off-White for text on primary */
+    --secondary: 138 33% 80%; /* Lighter shade of #7CB88E (Bottom Second Left) */
+    --secondary-foreground: 157 51% 17%; /* #154231 - Top Second Right, for text on secondary */
+    --muted: 137 37% 88%; /* Even Lighter shade of #A2D1B0 for muted backgrounds */
+    --muted-foreground: 157 30% 26%; /* #2E5948 - Top Left, for muted text */
+    --accent: 143 29% 48%; /* #5A9E74 - Bottom Second Right */
+    --accent-foreground: 0 0% 98%; /* Off-White for text on accent */
+    --destructive: 0 70% 50%; /* Standard Red - Kept from previous, adjust if needed */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 138 33% 65%; /* Mid-tone from #7CB88E for borders */
+    --input: 138 33% 65%; /* Mid-tone from #7CB88E for input borders */
+    --ring: 143 29% 48%; /* #5A9E74 - Accent for focus rings */
     
-    --chart-1: 130 42% 50%; 
-    --chart-2: 125 48% 58%;
-    --chart-3: 130 38% 40%;
-    --chart-4: 125 43% 48%;
-    --chart-5: 130 34% 30%;
+    --chart-1: 146 36% 37%; /* Primary */
+    --chart-2: 143 29% 48%; /* Accent */
+    --chart-3: 138 33% 60%; /* #7CB88E */
+    --chart-4: 157 30% 26%; /* #2E5948 */
+    --chart-5: 137 37% 65%; /* A slightly darker shade of background for variation */
     
-    --radius: 0.75rem; /* Increased border radius */
+    --radius: 0.75rem; /* Increased border radius - Kept from previous */
 
     /* Existing sidebar variables - untouched */
     --sidebar-background: 0 0% 98%;
@@ -48,31 +48,31 @@ body {
   }
  
   .dark {
-    --background: 151 85% 10%; /* Very Dark Zuccini */
-    --foreground: 130 35% 88%; /* Light Fern tint for text */
-    --card: 151 80% 13%; /* Slightly lighter Zuccini for cards */
-    --card-foreground: 130 35% 88%;
-    --popover: 151 80% 13%;
-    --popover-foreground: 130 35% 88%;
-    --primary: 130 45% 58%; /* Lighter, vibrant Fern for Dark Mode (#6CC88F) */
-    --primary-foreground: 151 85% 10%; /* Dark Zuccini text for primary on dark */
-    --secondary: 151 75% 18%; /* Slightly lighter/different shade of dark Zuccini for depth */
-    --secondary-foreground: 130 30% 80%;
-    --muted: 151 70% 22%; /* Darker Muted Zuccini */
-    --muted-foreground: 130 25% 70%;
-    --accent: 125 50% 65%; /* Brighter accent for Dark Mode (#79D99A) */
-    --accent-foreground: 151 85% 10%; /* Dark Zuccini text on accent for dark mode */
-    --destructive: 0 60% 55%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 151 70% 25%; /* Dark Zuccini border */
-    --input: 151 70% 25%;
-    --ring: 130 45% 58%; /* Primary Fern for dark mode */
+    --background: 157 69% 14%; /* #0D3B2A - Top Right */
+    --foreground: 137 37% 73%; /* #A2D1B0 - Bottom Left */
+    --card: 157 51% 17%; /* #154231 - Top Second Right */
+    --card-foreground: 137 37% 73%; /* #A2D1B0 */
+    --popover: 157 51% 17%; /* #154231 */
+    --popover-foreground: 137 37% 73%; /* #A2D1B0 */
+    --primary: 143 29% 48%; /* #5A9E74 - Bottom Second Right */
+    --primary-foreground: 157 69% 8%; /* Darker than background for text on primary */
+    --secondary: 157 39% 22%; /* #214D3E - Top Second Left */
+    --secondary-foreground: 137 37% 73%; /* #A2D1B0 */
+    --muted: 157 69% 12%; /* Darker than background for muted elements */
+    --muted-foreground: 138 33% 60%; /* #7CB88E - Bottom Second Left */
+    --accent: 138 33% 60%; /* #7CB88E - Bottom Second Left */
+    --accent-foreground: 157 69% 8%; /* Darker than background for text on accent */
+    --destructive: 0 60% 55%; /* Standard Red for dark - Kept from previous */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 157 39% 20%; /* Slightly darker than #214D3E for borders */
+    --input: 157 39% 20%; /* Slightly darker than #214D3E for input borders */
+    --ring: 143 29% 48%; /* #5A9E74 - Primary for focus rings */
 
-    --chart-1: 130 45% 58%;
-    --chart-2: 125 50% 65%;
-    --chart-3: 130 40% 50%;
-    --chart-4: 125 45% 55%;
-    --chart-5: 130 35% 45%;
+    --chart-1: 143 29% 48%; /* Primary Dark */
+    --chart-2: 138 33% 60%; /* Accent Dark */
+    --chart-3: 137 37% 73%; /* Foreground Dark (Light Green) */
+    --chart-4: 146 36% 50%; /* Lighter version of #3E825B */
+    --chart-5: 143 29% 65%; /* Lighter version of #5A9E74 */
 
     /* Existing sidebar variables - untouched */
     --sidebar-background: 240 5.9% 10%;
