@@ -52,7 +52,7 @@ export default function HomePage() {
             placeholder="Buscar productos, marcas o palabras clave..."
             value={filters.searchTerm}
             onChange={handleSearchChange}
-            className="h-12 rounded-full pl-12 text-base shadow-lg focus-visible:ring-primary/80"
+            className="h-12 rounded-full pl-12 text-base shadow-lg focus-visible:ring-primary/80 bg-card text-card-foreground placeholder:text-muted-foreground"
             aria-label="Buscar productos"
           />
           <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />

@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn(
-          "min-h-screen font-sans antialiased bg-gradient-to-br from-background via-background to-secondary/60",
+          "min-h-screen font-sans antialiased bg-gradient-to-br from-background via-background to-primary/20",
           poppins.variable
         )}
       >

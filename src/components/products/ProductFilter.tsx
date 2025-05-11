@@ -117,8 +117,19 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
           </Select>
         </div>
         
-        <Button variant="outline" onClick={resetFilters} className="w-full rounded-md shadow-sm hover:shadow-md transition-shadow">
-          <X className="mr-2 h-4 w-4" /> Restablecer Filtros (Mantener Búsqueda)
+        <Button 
+          variant="outline" 
+          onClick={resetFilters} 
+          className="w-full rounded-md shadow-sm hover:shadow-md transition-shadow py-3 h-auto"
+        >
+          <div className="flex items-center justify-center w-full">
+            <X className="mr-2 h-4 w-4 flex-shrink-0" />
+            <span className="text-center leading-tight">
+              Restablecer Filtros
+              <br />
+              (Mantener Búsqueda)
+            </span>
+          </div>
         </Button>
       </div>
     </aside>

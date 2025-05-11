@@ -19,7 +19,7 @@ export function ProductCard({ product }: ProductCardProps) {
   });
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden rounded-lg border shadow-md transition-shadow duration-300 hover:shadow-xl">
+    <Card className="flex h-full flex-col overflow-hidden rounded-lg border shadow-lg transition-shadow duration-300 hover:shadow-xl">
       <CardHeader className="p-0">
         <Link href={`/products/${product.slug}`} className="block">
           <div className="aspect-square overflow-hidden">
