@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Star, ShoppingCart, Heart, ChevronLeft } from 'lucide-react';
+import { Star, ShoppingCart, Heart, ChevronLeft, Check } from 'lucide-react'; // Added Check icon
 import Link from 'next/link';
 import { ProductCard } from '@/components/products/ProductCard';
 import { useToast } from '@/hooks/use-toast';
@@ -44,7 +44,7 @@ export default function ProductDetailsPage() {
   if (!product) {
     return (
       <div className="container mx-auto flex min-h-[calc(100vh-8rem)] items-center justify-center py-12">
-        <div className="animate-pulse text-xl font-semibold text-primary">Loading product details...</div>
+        <div className="animate-pulse text-xl font-semibold text-primary">Cargando detalles del producto...</div>
       </div>
     );
   }
@@ -62,32 +62,32 @@ export default function ProductDetailsPage() {
 
   const handleAddToCart = () => {
     if (product.category !== "Accessories" && product.sizes.length > 0 && !selectedSize) {
-        toast({ title: "Please select a size.", variant: "destructive", description: "Choose one of the available sizes for this product." });
+        toast({ title: "Por favor, selecciona una talla.", variant: "destructive", description: "Elige una de las tallas disponibles para este producto." });
         return;
     }
     if (product.colors.length > 0 && !selectedColor) {
-        toast({ title: "Please select a color.", variant: "destructive", description: "Choose one of the available colors for this product." });
+        toast({ title: "Por favor, selecciona un color.", variant: "destructive", description: "Elige uno de los colores disponibles para este producto." });
         return;
     }
     toast({
-        title: "Added to Cart!",
-        description: `${product.name} ${selectedSize ? `(${selectedSize}, ${selectedColor})` : `(${selectedColor})`} x ${quantity} has been added to your cart.`,
+        title: "¡Añadido al carrito!",
+        description: `${product.name} ${selectedSize ? `(${selectedSize}, ${selectedColor})` : `(${selectedColor})`} x ${quantity} ha sido añadido a tu carrito.`,
         className: "bg-primary text-primary-foreground",
     });
   };
   
   const handleWishlist = () => {
      toast({
-        title: "Added to Wishlist!",
-        description: `${product.name} has been added to your wishlist.`,
-        className: "border-accent text-accent-foreground bg-accent/10",
+        title: "¡Añadido a la lista de deseos!",
+        description: `${product.name} ha sido añadido a tu lista de deseos.`,
+        className: "border-accent text-accent-foreground bg-accent/10", // Note: this might not render as intended with current theme vars, adjust if needed
     });
   }
 
   return (
     <div className="container mx-auto py-8 md:py-12">
       <Button variant="outline" onClick={() => router.back()} className="mb-6 text-sm">
-        <ChevronLeft className="mr-2 h-4 w-4" /> Back to Products
+        <ChevronLeft className="mr-2 h-4 w-4" /> Volver a Productos
       </Button>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
         <ImageGallery images={product.images} altText={product.name} />
@@ -103,7 +103,7 @@ export default function ProductDetailsPage() {
                       <Star key={i} className={cn("h-5 w-5", i < Math.round(product.rating!) ? "fill-accent text-accent" : "text-muted-foreground/30")} />
                     ))}
                   </div>
-                  <span className="text-sm text-muted-foreground">({product.numReviews} reviews)</span>
+                  <span className="text-sm text-muted-foreground">({product.numReviews} reseñas)</span>
                 </div>
               )}
               <p className="mt-4 text-4xl font-extrabold text-primary">{formattedPrice}</p>
@@ -114,10 +114,10 @@ export default function ProductDetailsPage() {
               
               {product.category !== "Accessories" && product.sizes.length > 0 && (
                 <div className="mb-4">
-                  <label htmlFor="size-select" className="mb-2 block text-sm font-medium text-foreground/90">Size:</label>
+                  <label htmlFor="size-select" className="mb-2 block text-sm font-medium text-foreground/90">Talla:</label>
                   <Select value={selectedSize} onValueChange={(value) => setSelectedSize(value as ProductSize)}>
                     <SelectTrigger id="size-select" className="w-full rounded-md md:w-[200px]">
-                      <SelectValue placeholder="Select size" />
+                      <SelectValue placeholder="Seleccionar talla" />
                     </SelectTrigger>
                     <SelectContent>
                       {product.sizes.map(size => (
@@ -145,7 +145,7 @@ export default function ProductDetailsPage() {
                             backgroundColor: color.toLowerCase(), 
                             borderColor: color.toLowerCase() === 'white' || color.toLowerCase() === '#ffffff' ? 'hsl(var(--border))' : color.toLowerCase()
                         }}
-                        aria-label={`Select color ${color}`}
+                        aria-label={`Seleccionar color ${color}`}
                         >
                          {selectedColor === color && <Check className="h-5 w-5 text-white mix-blend-difference" />}
                         </Button>
@@ -155,7 +155,7 @@ export default function ProductDetailsPage() {
               )}
               
               <div className="mb-6 flex items-center gap-4">
-                <label htmlFor="quantity" className="text-sm font-medium text-foreground/90">Quantity:</label>
+                <label htmlFor="quantity" className="text-sm font-medium text-foreground/90">Cantidad:</label>
                 <div className="flex items-center rounded-md border">
                     <Button variant="ghost" size="icon" onClick={() => setQuantity(Math.max(1, quantity -1))} className="h-10 w-10 rounded-r-none border-r hover:bg-secondary">
                         <span className="text-xl">-</span>
@@ -176,16 +176,16 @@ export default function ProductDetailsPage() {
 
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button size="lg" className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90 shadow-md hover:shadow-lg transition-shadow" onClick={handleAddToCart}>
-                  <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
+                  <ShoppingCart className="mr-2 h-5 w-5" /> Añadir al Carrito
                 </Button>
                 <Button size="lg" variant="outline" className="flex-1 shadow-sm hover:shadow-md transition-shadow" onClick={handleWishlist}>
-                  <Heart className="mr-2 h-5 w-5" /> Add to Wishlist
+                  <Heart className="mr-2 h-5 w-5" /> Añadir a Lista de Deseos
                 </Button>
               </div>
               
               <div className="mt-6 space-y-2 text-sm">
-                  <p><Badge variant="secondary" className="text-xs">Category:</Badge> <span className="text-foreground/80">{product.category}</span></p>
-                  <p><Badge variant="secondary" className="text-xs">Stock:</Badge> <span className="text-foreground/80">{product.stock > 0 ? `${product.stock} items available` : 'Out of Stock'}</span></p>
+                  <p><Badge variant="secondary" className="text-xs">Categoría:</Badge> <span className="text-foreground/80">{product.category}</span></p>
+                  <p><Badge variant="secondary" className="text-xs">Disponibles:</Badge> <span className="text-foreground/80">{product.stock > 0 ? `${product.stock} unidades disponibles` : 'Agotado'}</span></p>
               </div>
             </CardContent>
           </Card>
@@ -194,7 +194,7 @@ export default function ProductDetailsPage() {
 
       {relatedProducts.length > 0 && (
         <section className="mt-12 md:mt-16">
-          <h2 className="mb-6 text-2xl font-bold text-primary md:text-3xl">Related Products</h2>
+          <h2 className="mb-6 text-2xl font-bold text-primary md:text-3xl">Productos Relacionados</h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedProducts.map(relatedProduct => (
               <ProductCard key={relatedProduct.id} product={relatedProduct} />

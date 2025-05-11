@@ -11,8 +11,19 @@ interface OrderListItemProps {
   order: Order;
 }
 
+const translateStatus = (status: Order['status']): string => {
+  switch (status) {
+    case 'Pending': return 'Pendiente';
+    case 'Processing': return 'En Proceso';
+    case 'Shipped': return 'Enviado';
+    case 'Delivered': return 'Entregado';
+    case 'Cancelled': return 'Cancelado';
+    default: return status;
+  }
+};
+
 export function OrderListItem({ order }: OrderListItemProps) {
-  const orderDate = new Date(order.date).toLocaleDateString('en-US', {
+  const orderDate = new Date(order.date).toLocaleDateString('es-ES', { // Using es-ES for Spanish date format
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -32,10 +43,10 @@ export function OrderListItem({ order }: OrderListItemProps) {
       <CardHeader className="bg-muted/30 p-4 sm:p-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <CardTitle className="text-lg font-semibold sm:text-xl">Order #{order.id}</CardTitle>
+            <CardTitle className="text-lg font-semibold sm:text-xl">Pedido #{order.id}</CardTitle>
             <CardDescription className="mt-1 flex items-center gap-1.5 text-xs sm:text-sm">
               <Calendar className="h-4 w-4" />
-              Placed on {orderDate}
+              Realizado el {orderDate}
             </CardDescription>
           </div>
           <Badge 
@@ -49,13 +60,13 @@ export function OrderListItem({ order }: OrderListItemProps) {
                 order.status === 'Pending' && 'bg-gray-400 text-gray-900 dark:bg-gray-500 dark:text-gray-950'
             )}
           >
-            {order.status}
+            {translateStatus(order.status)}
           </Badge>
         </div>
       </CardHeader>
       <CardContent className="p-4 sm:p-6">
         <div className="mb-4">
-          <h4 className="mb-2 text-sm font-medium text-muted-foreground">Items:</h4>
+          <h4 className="mb-2 text-sm font-medium text-muted-foreground">Artículos:</h4>
           <ul className="space-y-3">
             {order.items.slice(0, 2).map((item) => ( 
               <li key={item.productId} className="flex items-start gap-3">
@@ -70,8 +81,8 @@ export function OrderListItem({ order }: OrderListItemProps) {
                 <div className="flex-grow">
                   <p className="font-semibold text-sm">{item.productName}</p>
                   <p className="text-xs text-muted-foreground">
-                    Qty: {item.quantity} 
-                    {item.size && ` | Size: ${item.size}`}
+                    Cant: {item.quantity} 
+                    {item.size && ` | Talla: ${item.size}`}
                     {item.color && ` | Color: ${item.color}`}
                   </p>
                 </div>
@@ -79,7 +90,7 @@ export function OrderListItem({ order }: OrderListItemProps) {
               </li>
             ))}
             {order.items.length > 2 && (
-                <li className="text-xs text-muted-foreground pt-1">...and {order.items.length - 2} more item(s)</li>
+                <li className="text-xs text-muted-foreground pt-1">...y {order.items.length - 2} artículo(s) más</li>
             )}
           </ul>
         </div>
@@ -96,7 +107,7 @@ export function OrderListItem({ order }: OrderListItemProps) {
           <Button asChild variant="default" size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
             {/* In a real app, this would link to a specific order details page */}
             <Link href="#"> 
-              View Details
+              Ver Detalles
             </Link>
           </Button>
         </div>

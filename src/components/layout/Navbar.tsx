@@ -42,13 +42,13 @@ export function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <ShoppingBag className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold tracking-tight">FitStyle</span>
+          <span className="text-xl font-bold tracking-tight">Sporflix</span>
         </Link>
         <nav className="flex items-center gap-2 md:gap-4">
           {isAuthenticated && (
             <Button variant="ghost" size="sm" asChild>
               <Link href="/orders" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                My Orders
+                Mis Pedidos
               </Link>
             </Button>
           )}
@@ -67,7 +67,7 @@ export function Navbar() {
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{user.name || "User"}</p>
+                    <p className="text-sm font-medium leading-none">{user.name || "Usuario"}</p>
                     <p className="text-xs leading-none text-muted-foreground">
                       {user.email}
                     </p>
@@ -76,12 +76,12 @@ export function Navbar() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => router.push('/orders')}>
                   <ListOrdered className="mr-2 h-4 w-4" />
-                  <span>My Orders</span>
+                  <span>Mis Pedidos</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />
-                  <span>Log out</span>
+                  <span>Cerrar Sesión</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -89,7 +89,7 @@ export function Navbar() {
             <Button asChild variant="ghost" size="sm">
               <Link href="/login">
                 <LogIn className="mr-2 h-4 w-4" />
-                Login
+                Iniciar Sesión
               </Link>
             </Button>
           )}

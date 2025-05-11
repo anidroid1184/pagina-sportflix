@@ -53,12 +53,12 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.colors.slice(0, 3).map(color => (
              <Badge key={color} variant="outline" className="px-2 py-0.5 text-xs">{color}</Badge>
           ))}
-          {product.colors.length > 3 && <Badge variant="outline" className="px-2 py-0.5 text-xs">+{product.colors.length - 3} more</Badge>}
+          {product.colors.length > 3 && <Badge variant="outline" className="px-2 py-0.5 text-xs">+{product.colors.length - 3} más</Badge>}
         </div>
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90" variant="default">
-          <Link href={`/products/${product.slug}`}>View Details</Link>
+          <Link href={`/products/${product.slug}`}>Ver Detalles</Link>
         </Button>
       </CardFooter>
     </Card>

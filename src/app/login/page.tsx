@@ -2,7 +2,7 @@
 
 import { LoginForm } from '@/components/auth/LoginForm';
 import { useAuth } from '@/context/AuthContext';
-import { useRouter } }^{\text {from }} 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function LoginPage() {
@@ -18,7 +18,7 @@ export default function LoginPage() {
   if (loading || (!loading && isAuthenticated)) {
     return (
       <div className="flex min-h-[calc(100vh-8rem)] items-center justify-center">
-        <p>Loading...</p>
+        <p>Cargando...</p>
       </div>
     );
   }

@@ -25,32 +25,32 @@ export function LoginForm() {
         <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
           <LogIn className="h-8 w-8" />
         </div>
-        <CardTitle className="text-3xl font-bold">Welcome Back!</CardTitle>
-        <CardDescription>Sign in to access your account and continue shopping.</CardDescription>
+        <CardTitle className="text-3xl font-bold">¡Bienvenido de Nuevo!</CardTitle>
+        <CardDescription>Inicia sesión para acceder a tu cuenta y seguir comprando.</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="email">Correo Electrónico</Label>
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
               <Input
                 id="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder="tu@ejemplo.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="pl-10"
-                aria-label="Email Address"
+                aria-label="Correo Electrónico"
               />
             </div>
           </div>
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Contraseña</Label>
                 <Link href="#" className="text-sm text-primary hover:underline">
-                    Forgot password?
+                    ¿Olvidaste tu contraseña?
                 </Link>
             </div>
             <div className="relative">
@@ -63,20 +63,20 @@ export function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 className="pl-10"
-                aria-label="Password"
+                aria-label="Contraseña"
               />
             </div>
           </div>
           <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={loading}>
-            {loading ? 'Signing In...' : 'Sign In'}
+            {loading ? 'Iniciando Sesión...' : 'Iniciar Sesión'}
           </Button>
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-4">
         <p className="text-center text-sm text-muted-foreground">
-            Don&apos;t have an account?{' '}
+            ¿No tienes una cuenta?{' '}
             <Link href="#" className="font-medium text-primary hover:underline">
-            Sign up
+            Regístrate
             </Link>
         </p>
       </CardFooter>

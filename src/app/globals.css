@@ -8,31 +8,31 @@ body {
 
 @layer base {
   :root {
-    --background: 220 20% 98%; /* Very Light Cool Gray */
-    --foreground: 220 25% 10%; /* Dark Desaturated Blue */
+    --background: 0 0% 98%; /* Almost White */
+    --foreground: 0 0% 10%; /* Almost Black */
     --card: 0 0% 100%; /* White */
-    --card-foreground: 220 25% 10%;
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
-    --primary: 205 70% 45%; /* Sophisticated Blue */
-    --primary-foreground: 210 40% 98%; /* Light foreground for primary */
-    --secondary: 220 15% 94%; /* Light Cool Gray */
-    --secondary-foreground: 220 25% 25%; /* Darker text for secondary */
-    --muted: 220 15% 96.5%; /* Lighter Cool Gray */
-    --muted-foreground: 220 10% 45%; /* Muted text color */
-    --accent: 15 80% 55%; /* Vibrant Coral */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
-    --destructive: 0 70% 50%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 145 38% 53%; /* #5BB479 - Medium-Light Green */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 150 10% 95%; /* Very Light Cool Gray - hint of green */
+    --secondary-foreground: 150 15% 25%; /* Darker text for secondary */
+    --muted: 150 10% 97%; /* Even Lighter Cool Gray */
+    --muted-foreground: 150 8% 45%; /* Muted text color */
+    --accent: 145 50% 61%; /* #66D08A - Light Green */
+    --accent-foreground: 0 0% 10%; /* Dark text on accent */
+    --destructive: 0 70% 50%; /* Standard Red */
     --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 88%; /* Border color */
-    --input: 220 15% 88%; /* Input field border */
-    --ring: 205 70% 55%; /* Slightly lighter blue for focus rings */
+    --border: 150 10% 90%; /* Subtle cool gray border */
+    --input: 150 10% 90%; /* Input field border */
+    --ring: 145 38% 53%; /* Primary green for focus rings */
     
-    --chart-1: 205 70% 50%;
-    --chart-2: 15 75% 60%;
-    --chart-3: 180 60% 45%;
-    --chart-4: 45 70% 50%;
-    --chart-5: 280 65% 60%;
+    --chart-1: 145 38% 53%; /* #5BB479 */
+    --chart-2: 145 50% 61%; /* #66D08A */
+    --chart-3: 145 30% 45%; /* #509969 */
+    --chart-4: 140 29% 38%; /* #457D58 */
+    --chart-5: 140 29% 35%; /* #3F7250 */
     
     --radius: 0.75rem; /* Increased border radius */
 
@@ -48,31 +48,31 @@ body {
   }
  
   .dark {
-    --background: 220 25% 8%; /* Very Dark Desaturated Blue */
-    --foreground: 220 15% 90%; /* Light Grayish Blue */
-    --card: 220 25% 12%; /* Darker Desaturated Blue for cards */
-    --card-foreground: 220 15% 90%;
-    --popover: 220 25% 8%;
-    --popover-foreground: 220 15% 90%;
-    --primary: 205 65% 55%; /* Slightly Lighter Sophisticated Blue for Dark Mode */
-    --primary-foreground: 220 20% 98%; 
-    --secondary: 220 20% 15%; /* Dark Grayish Blue */
-    --secondary-foreground: 220 15% 85%;
-    --muted: 220 20% 18%; /* Darker Muted */
-    --muted-foreground: 220 10% 65%;
-    --accent: 15 75% 60%; /* Slightly Lighter Vibrant Coral for Dark Mode */
-    --accent-foreground: 220 25% 10%; /* Dark text on accent for dark mode */
+    --background: 150 5% 12%; /* Very Dark Cool Gray */
+    --foreground: 150 5% 90%; /* Very Light Cool Gray */
+    --card: 150 5% 15%; /* Darker Cool Gray for cards */
+    --card-foreground: 150 5% 90%;
+    --popover: 150 5% 12%;
+    --popover-foreground: 150 5% 90%;
+    --primary: 145 45% 60%; /* Lighter shade of #5BB479 for Dark Mode */
+    --primary-foreground: 0 0% 10%; /* Dark text for primary on dark */
+    --secondary: 150 5% 20%; /* Darker Cool Gray */
+    --secondary-foreground: 150 5% 80%;
+    --muted: 150 5% 25%; /* Darker Muted */
+    --muted-foreground: 150 5% 60%;
+    --accent: 145 60% 70%; /* Lighter shade of #66D08A for Dark Mode */
+    --accent-foreground: 0 0% 10%; /* Dark text on accent for dark mode */
     --destructive: 0 60% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 205 65% 60%;
+    --border: 150 5% 30%;
+    --input: 150 5% 30%;
+    --ring: 145 45% 60%; /* Primary for dark mode */
 
-    --chart-1: 205 60% 60%;
-    --chart-2: 15 70% 65%;
-    --chart-3: 180 55% 55%;
-    --chart-4: 45 65% 60%;
-    --chart-5: 280 60% 65%;
+    --chart-1: 145 45% 60%;
+    --chart-2: 145 60% 70%;
+    --chart-3: 145 40% 55%;
+    --chart-4: 140 35% 48%;
+    --chart-5: 140 35% 45%;
 
     /* Existing sidebar variables - untouched */
     --sidebar-background: 240 5.9% 10%;

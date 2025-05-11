@@ -15,8 +15,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'FitStyle - Elevate Your Performance',
-  description: 'Discover the latest in sports apparel and accessories at FitStyle.',
+  title: 'Sporflix - Tu Equipo para el Éxito Deportivo',
+  description: 'En Sporflix, encuentra la mejor ropa y accesorios deportivos. Tu comodidad, tu deporte, tu estilo.',
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable)}>
         <AuthProvider>
           <div className="flex min-h-screen flex-col">

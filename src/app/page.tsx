@@ -41,19 +41,19 @@ export default function HomePage() {
   return (
     <div className="container mx-auto py-8 md:py-12">
       <div className="mb-8 md:mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-primary md:text-5xl">Explore Our Collection</h1>
-        <p className="mt-3 text-lg text-muted-foreground md:text-xl">Find the perfect gear to elevate your performance.</p>
+        <h1 className="text-4xl font-bold tracking-tight text-primary md:text-5xl">Explora el Universo Sporflix</h1>
+        <p className="mt-3 text-lg text-muted-foreground md:text-xl">Tu tienda de ropa deportiva favorita. Tu comodidad, tu deporte, tu estilo.</p>
       </div>
       
       <div className="mb-8 md:mb-10 flex justify-center px-4">
         <div className="relative w-full max-w-2xl">
           <Input 
             type="search"
-            placeholder="Search products, brands, or keywords..."
+            placeholder="Buscar productos, marcas o palabras clave..."
             value={filters.searchTerm}
             onChange={handleSearchChange}
             className="h-12 rounded-full pl-12 text-base shadow-lg focus-visible:ring-primary/80"
-            aria-label="Search products"
+            aria-label="Buscar productos"
           />
           <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
         </div>
@@ -71,9 +71,9 @@ export default function HomePage() {
           ) : (
             <div className="flex min-h-[400px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted bg-card p-8 text-center shadow-sm">
               <PackageX className="mb-6 h-20 w-20 text-muted-foreground/70" />
-              <h2 className="text-2xl font-semibold text-foreground">No Products Found</h2>
+              <h2 className="text-2xl font-semibold text-foreground">No Se Encontraron Productos</h2>
               <p className="mt-2 max-w-sm text-muted-foreground">
-                We couldn&apos;t find any products matching your current filters or search term. Try adjusting them or browse all products.
+                No pudimos encontrar productos que coincidan con tus filtros o término de búsqueda. Intenta ajustarlos o explora todos los productos.
               </p>
             </div>
           )}

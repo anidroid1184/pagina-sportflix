@@ -26,13 +26,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     // Check for saved user in localStorage on initial load
     try {
-      const savedUser = localStorage.getItem('fitstyleUser');
+      const savedUser = localStorage.getItem('sporflixUser');
       if (savedUser) {
         setUser(JSON.parse(savedUser));
       }
     } catch (error) {
       console.error("Failed to parse user from localStorage", error);
-      localStorage.removeItem('fitstyleUser');
+      localStorage.removeItem('sporflixUser');
     }
     setLoading(false);
   }, []);
@@ -44,14 +44,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (email === MOCK_USER_EMAIL && pass === MOCK_USER_PASS) {
       setUser(MOCK_USER_DATA);
       try {
-        localStorage.setItem('fitstyleUser', JSON.stringify(MOCK_USER_DATA));
+        localStorage.setItem('sporflixUser', JSON.stringify(MOCK_USER_DATA));
       } catch (error) {
         console.error("Failed to save user to localStorage", error);
       }
       router.push('/');
     } else {
       // In a real app, you'd use the toast service here
-      alert('Invalid credentials');
+      alert('Credenciales inválidas');
     }
     setLoading(false);
   }, [router]);
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = useCallback(() => {
     setUser(null);
     try {
-      localStorage.removeItem('fitstyleUser');
+      localStorage.removeItem('sporflixUser');
     } catch (error) {
       console.error("Failed to remove user from localStorage", error);
     }

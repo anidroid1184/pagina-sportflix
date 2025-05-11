@@ -32,7 +32,7 @@ export default function OrdersPage() {
   if (authLoading || pageLoading) {
     return (
       <div className="container mx-auto flex min-h-[calc(100vh-8rem)] items-center justify-center py-12">
-        <div className="animate-pulse text-xl font-semibold">Loading your orders...</div>
+        <div className="animate-pulse text-xl font-semibold">Cargando tus pedidos...</div>
       </div>
     );
   }
@@ -41,10 +41,10 @@ export default function OrdersPage() {
       // This case should ideally be handled by the redirect, but as a fallback:
       return (
           <div className="container mx-auto flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center py-12 text-center">
-              <h1 className="mb-4 text-2xl font-bold">Access Denied</h1>
-              <p className="mb-6 text-muted-foreground">Please log in to view your order history.</p>
+              <h1 className="mb-4 text-2xl font-bold">Acceso Denegado</h1>
+              <p className="mb-6 text-muted-foreground">Por favor, inicia sesión para ver tu historial de pedidos.</p>
               <Button asChild>
-                  <Link href="/login?redirect=/orders">Login</Link>
+                  <Link href="/login?redirect=/orders">Iniciar Sesión</Link>
               </Button>
           </div>
       );
@@ -56,19 +56,19 @@ export default function OrdersPage() {
       <div className="mb-8 flex items-center justify-between">
         <h1 className="flex items-center gap-3 text-3xl font-bold tracking-tight text-primary md:text-4xl">
           <ListOrdered className="h-8 w-8 md:h-10 md:w-10" />
-          My Orders
+          Mis Pedidos
         </h1>
       </div>
 
       {orders.length === 0 ? (
         <div className="flex min-h-[300px] flex-col items-center justify-center rounded-lg border border-dashed bg-card p-12 text-center">
           <ShoppingBag className="mb-6 h-20 w-20 text-muted-foreground" />
-          <h2 className="text-2xl font-semibold">No Orders Yet</h2>
+          <h2 className="text-2xl font-semibold">Aún No Tienes Pedidos</h2>
           <p className="mt-2 mb-6 text-muted-foreground">
-            You haven&apos;t placed any orders. Start shopping to see them here!
+            No has realizado ningún pedido. ¡Comienza a comprar para verlos aquí!
           </p>
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="/">Start Shopping</Link>
+            <Link href="/">Comenzar a Comprar</Link>
           </Button>
         </div>
       ) : (

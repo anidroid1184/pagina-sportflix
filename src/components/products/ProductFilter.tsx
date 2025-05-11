@@ -25,6 +25,18 @@ interface ProductFilterProps {
   onFilterChange: (newFilters: Filters) => void;
 }
 
+const categoryTranslations: Record<ProductCategory, string> = {
+  "T-Shirts": "Camisetas",
+  "Shorts": "Pantalonetas",
+  "Hoodies": "Sudaderas",
+  "Jackets": "Chaquetas",
+  "Leggings": "Leggings",
+  "Bikers": "Bikers",
+  "Footwear": "Calzado",
+  "Accessories": "Accesorios",
+};
+
+
 export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
   const handleCategoryChange = (value: string) => {
     onFilterChange({ ...filters, category: value as ProductCategory | 'all' });
@@ -51,36 +63,36 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
       <div className="mb-6 flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-xl font-semibold text-primary">
           <Filter className="h-5 w-5" />
-          Filters
+          Filtros
         </h3>
         <Button variant="ghost" size="sm" onClick={clearAll} className="text-xs text-muted-foreground hover:text-destructive">
-            Clear All
+            Limpiar Todo
         </Button>
       </div>
       <div className="space-y-6">
         <div>
-          <label htmlFor="category-filter" className="mb-2 block text-sm font-medium text-foreground/90">Category</label>
+          <label htmlFor="category-filter" className="mb-2 block text-sm font-medium text-foreground/90">Categoría</label>
           <Select value={filters.category} onValueChange={handleCategoryChange}>
             <SelectTrigger id="category-filter" className="rounded-md">
-              <SelectValue placeholder="Select category" />
+              <SelectValue placeholder="Seleccionar categoría" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
+              <SelectItem value="all">Todas las Categorías</SelectItem>
               {productCategories.map((category) => (
-                <SelectItem key={category} value={category}>{category}</SelectItem>
+                <SelectItem key={category} value={category}>{categoryTranslations[category] || category}</SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
 
         <div>
-          <label htmlFor="size-filter" className="mb-2 block text-sm font-medium text-foreground/90">Size</label>
+          <label htmlFor="size-filter" className="mb-2 block text-sm font-medium text-foreground/90">Talla</label>
           <Select value={filters.size} onValueChange={handleSizeChange}>
             <SelectTrigger id="size-filter" className="rounded-md">
-              <SelectValue placeholder="Select size" />
+              <SelectValue placeholder="Seleccionar talla" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Sizes</SelectItem>
+              <SelectItem value="all">Todas las Tallas</SelectItem>
               {productSizes.map((size) => (
                 <SelectItem key={size} value={size}>{size}</SelectItem>
               ))}
@@ -92,10 +104,10 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
           <label htmlFor="color-filter" className="mb-2 block text-sm font-medium text-foreground/90">Color</label>
           <Select value={filters.color} onValueChange={handleColorChange}>
             <SelectTrigger id="color-filter" className="rounded-md">
-              <SelectValue placeholder="Select color" />
+              <SelectValue placeholder="Seleccionar color" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Colors</SelectItem>
+              <SelectItem value="all">Todos los Colores</SelectItem>
               {productColors.map((color) => (
                 <SelectItem key={color} value={color}>{color}</SelectItem>
               ))}
@@ -104,7 +116,7 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
         </div>
         
         <Button variant="outline" onClick={resetFilters} className="w-full rounded-md shadow-sm hover:shadow-md transition-shadow">
-          <X className="mr-2 h-4 w-4" /> Reset Filters (Keep Search)
+          <X className="mr-2 h-4 w-4" /> Restablecer Filtros (Mantener Búsqueda)
         </Button>
       </div>
     </aside>
