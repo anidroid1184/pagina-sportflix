@@ -2,7 +2,7 @@ import type { Product, ProductCategory, ProductSize } from '@/types';
 
 const ALL_SIZES: ProductSize[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const COMMON_SIZES: ProductSize[] = ['S', 'M', 'L', 'XL'];
-const ALL_COLORS = ['Black', 'White', 'Red', 'Blue', 'Green', 'Gray', 'Yellow', 'Orange'];
+const ALL_COLORS = ['Negro', 'Blanco', 'Rojo', 'Azul', 'Verde', 'Gris', 'Amarillo', 'Naranja', 'Rosado', 'Morado', 'Azul Petróleo', 'Gris Jaspeado'];
 
 const getRandomElements = <T>(arr: T[], count: number): T[] => {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
@@ -16,7 +16,7 @@ export const products: Product[] = [
     slug: 'performance-training-tee',
     description: 'Lightweight and breathable tee for peak performance.',
     longDescription: 'Engineered with moisture-wicking fabric, this tee keeps you cool and dry during intense workouts. Its ergonomic design allows for a full range of motion, making it perfect for running, gym sessions, or any athletic activity. Features reflective details for low-light visibility.',
-    price: 29.99,
+    price: 79900,
     images: [
       'https://picsum.photos/seed/prod1img1/600/600',
       'https://picsum.photos/seed/prod1img2/600/600',
@@ -36,7 +36,7 @@ export const products: Product[] = [
     slug: 'flexfit-workout-shorts',
     description: 'Stretchable and durable shorts for maximum flexibility.',
     longDescription: 'The FlexFit Workout Shorts are designed for comfort and performance. Made with a 4-way stretch fabric, they move with you. An elastic waistband with an internal drawcord ensures a secure fit. Includes zippered pockets to keep your essentials safe.',
-    price: 39.99,
+    price: 99900,
     images: [
       'https://picsum.photos/seed/prod2img1/600/600',
       'https://picsum.photos/seed/prod2img2/600/600',
@@ -55,7 +55,7 @@ export const products: Product[] = [
     slug: 'cozytech-fleece-hoodie',
     description: 'Warm and comfortable hoodie for cool weather.',
     longDescription: 'Stay warm without sacrificing style in our CozyTech Fleece Hoodie. The soft fleece interior provides excellent insulation, while the sleek exterior gives a modern look. Features a kangaroo pocket and an adjustable hood.',
-    price: 59.99,
+    price: 149900,
     images: [
       'https://picsum.photos/seed/prod3img1/600/600',
       'https://picsum.photos/seed/prod3img2/600/600',
@@ -76,14 +76,14 @@ export const products: Product[] = [
     slug: 'all-weather-running-jacket',
     description: 'Water-resistant and windproof jacket for all conditions.',
     longDescription: 'Don\'t let the weather stop you. This All-Weather Running Jacket is built with a lightweight, water-resistant, and windproof shell. Ventilated panels ensure breathability, and secure-zip pockets protect your valuables. Its packable design makes it easy to carry.',
-    price: 89.99,
+    price: 219900,
     images: [
       'https://picsum.photos/seed/prod4img1/600/600',
       'https://picsum.photos/seed/prod4img2/600/600',
     ],
     category: 'Jackets',
     sizes: COMMON_SIZES,
-    colors: ['Black', 'Navy', 'Charcoal'],
+    colors: ['Negro', 'Azul Marino', 'Carbón'],
     brand: 'Endurance Gear',
     stock: 75,
     rating: 4.6,
@@ -95,11 +95,11 @@ export const products: Product[] = [
     slug: 'sport-ankle-socks-3-pack',
     description: 'Cushioned and breathable ankle socks.',
     longDescription: 'Experience ultimate comfort with our Sport Ankle Socks. Designed with targeted cushioning and arch support, these socks are perfect for any sport. The moisture-wicking material keeps your feet dry and comfortable. Sold in a convenient 3-pack.',
-    price: 15.99,
+    price: 45900,
     images: ['https://picsum.photos/seed/prod5img1/600/600'],
     category: 'Accessories',
     sizes: ['M', 'L'], // Sock sizes often M/L
-    colors: ['White', 'Black', 'Gray'],
+    colors: ['Blanco', 'Negro', 'Gris'],
     brand: 'FitStyle Basics',
     stock: 300,
     rating: 4.3,
@@ -111,7 +111,7 @@ export const products: Product[] = [
     slug: 'trailblazer-hiking-boots',
     description: 'Durable and supportive boots for rugged terrains.',
     longDescription: 'Conquer any trail with the TrailBlazer Hiking Boots. Featuring a waterproof membrane, robust ankle support, and a high-traction outsole, these boots are built for adventure. The cushioned insole provides all-day comfort on long hikes.',
-    price: 129.99,
+    price: 349900,
     images: [
       'https://picsum.photos/seed/prod6img1/600/600',
       'https://picsum.photos/seed/prod6img2/600/600',
@@ -119,7 +119,7 @@ export const products: Product[] = [
     ],
     category: 'Footwear',
     sizes: ['S', 'M', 'L', 'XL'], // Representing shoe sizes 7-13 range
-    colors: ['Brown', 'Dark Gray', 'Olive Green'],
+    colors: ['Café', 'Gris Oscuro', 'Verde Oliva'],
     brand: 'Outdoor Pro',
     stock: 60,
     rating: 4.9,
@@ -131,7 +131,7 @@ export const products: Product[] = [
     slug: 'yogaflow-leggings',
     description: 'High-waisted, buttery-soft leggings for yoga and pilates.',
     longDescription: 'Find your flow with our YogaFlow Leggings. Made from a premium, four-way stretch fabric that feels like a second skin. The high-waisted design offers gentle compression and support, while the opaque material ensures confidence in every pose. Hidden waistband pocket for small essentials.',
-    price: 49.99,
+    price: 129900,
     images: [
       'https://picsum.photos/seed/prod7img1/600/600',
       'https://picsum.photos/seed/prod7img2/600/600',
@@ -150,7 +150,7 @@ export const products: Product[] = [
     slug: 'aerospeed-running-shoes',
     description: 'Lightweight and responsive shoes for runners.',
     longDescription: 'Shave seconds off your PR with the AeroSpeed Running Shoes. Engineered for speed and agility, these shoes feature a responsive foam midsole and a breathable mesh upper. The durable rubber outsole provides excellent traction on various surfaces.',
-    price: 119.99,
+    price: 299900,
     images: [
       'https://picsum.photos/seed/prod8img1/600/600',
       'https://picsum.photos/seed/prod8img2/600/600',
@@ -170,18 +170,38 @@ export const products: Product[] = [
     slug: 'aerocycle-biker-shorts',
     description: 'Comfortable and supportive biker shorts for cycling or fashion.',
     longDescription: 'The AeroCycle Biker Shorts offer a perfect blend of performance and style. Featuring a comfortable chamois for long rides (optional based on final design) and a sleek, high-waisted fit that stays in place. Made with moisture-wicking, compressive fabric for support and breathability. Ideal for cycling, workouts, or as a fashion statement.',
-    price: 45.99,
+    price: 119900,
     images: [
       'https://picsum.photos/seed/prod9img1/600/600',
       'https://picsum.photos/seed/prod9img2/600/600',
     ],
     category: 'Bikers',
     sizes: COMMON_SIZES,
-    colors: ['Black', 'Navy', 'Forest Green'],
+    colors: ['Negro', 'Azul Marino', 'Verde Bosque'],
     brand: 'CyclePro',
     stock: 110,
     rating: 4.6,
     numReviews: 70,
+  },
+  {
+    id: '10',
+    name: 'Blusa Deportiva Tipo Esqueleto',
+    slug: 'blusa-deportiva-esqueleto',
+    description: 'Nueva blusa deportiva tipo esqueleto, ligera y transpirable.',
+    longDescription: 'Descubre la nueva blusa deportiva tipo esqueleto, perfecta para tus entrenamientos más intensos. Su diseño ligero y transpirable te mantendrá fresca y cómoda, permitiendo una total libertad de movimiento. Ideal para el gimnasio, running o cualquier actividad deportiva.',
+    price: 30000,
+    images: [
+      // For now, we'll use a placeholder. In a real scenario, you'd upload this image.
+      'https://picsum.photos/seed/blusadeportiva1/600/600', 
+      'https://picsum.photos/seed/blusadeportiva2/600/600',
+    ],
+    category: 'T-Shirts',
+    sizes: COMMON_SIZES,
+    colors: ['Azul Petróleo', 'Negro', 'Gris Jaspeado'],
+    brand: 'Sporflix Basics',
+    stock: 130,
+    rating: 4.4,
+    numReviews: 75,
   },
 ];
 
@@ -196,4 +216,3 @@ export const getProductById = (id: string): Product | undefined => {
 export const productCategories: ProductCategory[] = ['T-Shirts', 'Shorts', 'Hoodies', 'Jackets', 'Leggings', 'Bikers', 'Footwear', 'Accessories'];
 export const productSizes: ProductSize[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 export const productColors: string[] = Array.from(new Set(products.flatMap(p => p.colors))).sort();
-
