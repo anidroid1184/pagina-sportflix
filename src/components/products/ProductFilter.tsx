@@ -25,7 +25,7 @@ interface ProductFilterProps {
   onFilterChange: (newFilters: Filters) => void;
 }
 
-const categoryTranslations: Record<ProductCategory, string> = {
+const categoryTranslations: Record<ProductCategory | 'all', string> = {
   "T-Shirts": "Camisetas",
   "Shorts": "Pantalonetas",
   "Hoodies": "Sudaderas",
@@ -34,6 +34,8 @@ const categoryTranslations: Record<ProductCategory, string> = {
   "Bikers": "Bikers",
   "Footwear": "Calzado",
   "Accessories": "Accesorios",
+  "Sets": "Conjuntos",
+  "all": "Todas las Categorías"
 };
 
 
@@ -77,7 +79,7 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
               <SelectValue placeholder="Seleccionar categoría" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">Todas las Categorías</SelectItem>
+              <SelectItem value="all">{categoryTranslations['all']}</SelectItem>
               {productCategories.map((category) => (
                 <SelectItem key={category} value={category}>{categoryTranslations[category] || category}</SelectItem>
               ))}

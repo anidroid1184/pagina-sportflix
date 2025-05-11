@@ -191,7 +191,6 @@ export const products: Product[] = [
     longDescription: 'Descubre la nueva blusa deportiva tipo esqueleto, perfecta para tus entrenamientos más intensos. Su diseño ligero y transpirable te mantendrá fresca y cómoda, permitiendo una total libertad de movimiento. Ideal para el gimnasio, running o cualquier actividad deportiva.',
     price: 30000,
     images: [
-      // For now, we'll use a placeholder. In a real scenario, you'd upload this image.
       'https://picsum.photos/seed/blusadeportiva1/600/600', 
       'https://picsum.photos/seed/blusadeportiva2/600/600',
     ],
@@ -203,6 +202,25 @@ export const products: Product[] = [
     rating: 4.4,
     numReviews: 75,
   },
+  {
+    id: '11',
+    name: 'Set Buso Manga Rangla y Biker',
+    slug: 'set-buso-manga-rangla-y-biker',
+    description: 'Nuevo set de buso manga rangla y biker shorts. Cómodo y versátil.',
+    longDescription: 'Este conjunto deportivo incluye un buso de manga rangla y unos biker shorts, ofreciendo comodidad y estilo para tus actividades. Fabricado con materiales de alta calidad para mayor durabilidad y confort. Perfecto para el gimnasio, actividades al aire libre o para un look deportivo casual.',
+    price: 60000,
+    images: [
+      'https://picsum.photos/seed/setbusobiker1/600/600', // Placeholder for the user's image
+      'https://picsum.photos/seed/setbusobiker2/600/600',
+    ],
+    category: 'Sets',
+    sizes: COMMON_SIZES, 
+    colors: ['Negro', 'Gris Oscuro'], // Assuming black or dark grey from image
+    brand: 'Sporflix Active',
+    stock: 50,
+    rating: 4.7, // Arbitrary
+    numReviews: 25, // Arbitrary
+  },
 ];
 
 export const getProductBySlug = (slug: string): Product | undefined => {
@@ -213,6 +231,6 @@ export const getProductById = (id: string): Product | undefined => {
   return products.find(product => product.id === id);
 };
 
-export const productCategories: ProductCategory[] = ['T-Shirts', 'Shorts', 'Hoodies', 'Jackets', 'Leggings', 'Bikers', 'Footwear', 'Accessories'];
+export const productCategories: ProductCategory[] = ['T-Shirts', 'Shorts', 'Hoodies', 'Jackets', 'Leggings', 'Bikers', 'Footwear', 'Accessories', 'Sets'];
 export const productSizes: ProductSize[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 export const productColors: string[] = Array.from(new Set(products.flatMap(p => p.colors))).sort();
