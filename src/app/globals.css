@@ -8,31 +8,31 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* Almost White */
-    --foreground: 0 0% 10%; /* Almost Black */
+    --background: 140 50% 97%; /* Very Pale, slightly more vibrant Aqua/Mint */
+    --foreground: 140 30% 20%; /* Dark Desaturated Aqua/Mint for text */
     --card: 0 0% 100%; /* White */
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 140 30% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-    --primary: 145 38% 53%; /* #5BB479 - Medium-Light Green */
+    --popover-foreground: 140 30% 20%;
+    --primary: 150 55% 48%; /* #4EAF7A A vibrant but not too bright Green */
     --primary-foreground: 0 0% 100%; /* White */
-    --secondary: 150 10% 95%; /* Very Light Cool Gray - hint of green */
-    --secondary-foreground: 150 15% 25%; /* Darker text for secondary */
-    --muted: 150 10% 97%; /* Even Lighter Cool Gray */
-    --muted-foreground: 150 8% 45%; /* Muted text color */
-    --accent: 145 50% 61%; /* #66D08A - Light Green */
-    --accent-foreground: 0 0% 10%; /* Dark text on accent */
+    --secondary: 140 40% 92%; /* Slightly darker pale Aqua/Mint for gradient or less emphasis areas */
+    --secondary-foreground: 140 30% 35%; /* Darker text for secondary */
+    --muted: 140 35% 95%; /* Even lighter Aqua/Mint */
+    --muted-foreground: 140 25% 50%; /* Muted text color */
+    --accent: 155 60% 55%; /* #5CD68A A brighter, inviting Green accent */
+    --accent-foreground: 155 30% 15%; /* Dark text on accent */
     --destructive: 0 70% 50%; /* Standard Red */
     --destructive-foreground: 0 0% 100%;
-    --border: 150 10% 90%; /* Subtle cool gray border */
-    --input: 150 10% 90%; /* Input field border */
-    --ring: 145 38% 53%; /* Primary green for focus rings */
+    --border: 140 30% 88%; /* Subtle cool border */
+    --input: 140 30% 88%; /* Input field border */
+    --ring: 150 55% 48%; /* Primary green for focus rings */
     
-    --chart-1: 145 38% 53%; /* #5BB479 */
-    --chart-2: 145 50% 61%; /* #66D08A */
-    --chart-3: 145 30% 45%; /* #509969 */
-    --chart-4: 140 29% 38%; /* #457D58 */
-    --chart-5: 140 29% 35%; /* #3F7250 */
+    --chart-1: 150 55% 48%; 
+    --chart-2: 155 60% 55%;
+    --chart-3: 150 45% 40%;
+    --chart-4: 155 50% 45%;
+    --chart-5: 150 40% 35%;
     
     --radius: 0.75rem; /* Increased border radius */
 
@@ -48,31 +48,31 @@ body {
   }
  
   .dark {
-    --background: 150 5% 12%; /* Very Dark Cool Gray */
-    --foreground: 150 5% 90%; /* Very Light Cool Gray */
-    --card: 150 5% 15%; /* Darker Cool Gray for cards */
-    --card-foreground: 150 5% 90%;
-    --popover: 150 5% 12%;
-    --popover-foreground: 150 5% 90%;
-    --primary: 145 45% 60%; /* Lighter shade of #5BB479 for Dark Mode */
-    --primary-foreground: 0 0% 10%; /* Dark text for primary on dark */
-    --secondary: 150 5% 20%; /* Darker Cool Gray */
-    --secondary-foreground: 150 5% 80%;
-    --muted: 150 5% 25%; /* Darker Muted */
-    --muted-foreground: 150 5% 60%;
-    --accent: 145 60% 70%; /* Lighter shade of #66D08A for Dark Mode */
-    --accent-foreground: 0 0% 10%; /* Dark text on accent for dark mode */
+    --background: 150 15% 10%; /* Very Dark, slightly desaturated Cool Green/Blue */
+    --foreground: 150 25% 90%; /* Light, soft Cool Green/Blue tint for text */
+    --card: 150 12% 15%; /* Darker cards */
+    --card-foreground: 150 25% 90%;
+    --popover: 150 12% 15%;
+    --popover-foreground: 150 25% 90%;
+    --primary: 150 60% 55%; /* #59C284 Lighter, vibrant Green for Dark Mode */
+    --primary-foreground: 150 20% 10%; /* Dark text for primary on dark */
+    --secondary: 150 10% 18%; /* Slightly lighter/different shade of dark bg for depth */
+    --secondary-foreground: 150 20% 80%;
+    --muted: 150 8% 22%; /* Darker Muted */
+    --muted-foreground: 150 15% 65%;
+    --accent: 155 65% 60%; /* #6BDB9A Brighter accent for Dark Mode */
+    --accent-foreground: 155 25% 10%; /* Dark text on accent for dark mode */
     --destructive: 0 60% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 150 5% 30%;
-    --input: 150 5% 30%;
-    --ring: 145 45% 60%; /* Primary for dark mode */
+    --border: 150 10% 25%;
+    --input: 150 10% 25%;
+    --ring: 150 60% 55%; /* Primary for dark mode */
 
-    --chart-1: 145 45% 60%;
-    --chart-2: 145 60% 70%;
-    --chart-3: 145 40% 55%;
-    --chart-4: 140 35% 48%;
-    --chart-5: 140 35% 45%;
+    --chart-1: 150 60% 55%;
+    --chart-2: 155 65% 60%;
+    --chart-3: 150 50% 50%;
+    --chart-4: 155 55% 52%;
+    --chart-5: 150 45% 48%;
 
     /* Existing sidebar variables - untouched */
     --sidebar-background: 240 5.9% 10%;
@@ -91,7 +91,7 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground; /* Background gradient is now handled in layout.tsx */
     font-feature-settings: "rlig" 1,"calt" 1; /* Enable common ligatures */
   }
 }
