@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google'; // Changed from Inter to Poppins
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -7,7 +7,12 @@ import { AuthProvider } from '@/context/AuthContext';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 
-const inter = Inter({ subsets: ['latin'], variable: "--font-sans" });
+// Configure Poppins font
+const poppins = Poppins({ 
+  subsets: ['latin'], 
+  variable: "--font-sans",
+  weight: ['300', '400', '500', '600', '700'] // Include desired weights
+});
 
 export const metadata: Metadata = {
   title: 'FitStyle - Elevate Your Performance',
@@ -21,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)}>
+      <body className={cn("min-h-screen bg-background font-sans antialiased", poppins.variable)}>
         <AuthProvider>
           <div className="flex min-h-screen flex-col">
             <Navbar />

@@ -11,8 +11,15 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const formattedPrice = product.price.toLocaleString('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+
   return (
-    <Card className="flex h-full flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+    <Card className="flex h-full flex-col overflow-hidden rounded-lg border shadow-md transition-shadow duration-300 hover:shadow-xl">
       <CardHeader className="p-0">
         <Link href={`/products/${product.slug}`} className="block">
           <div className="aspect-square overflow-hidden">
@@ -32,25 +39,25 @@ export function ProductCard({ product }: ProductCardProps) {
           <CardTitle className="mb-2 line-clamp-2 text-lg font-semibold hover:text-primary">{product.name}</CardTitle>
         </Link>
         <p className="mb-2 text-sm text-muted-foreground">{product.brand}</p>
-        <div className="mb-3 flex items-center gap-2">
-          <p className="text-xl font-bold text-primary">${product.price.toFixed(2)}</p>
+        <div className="mb-3 flex items-center justify-between">
+          <p className="text-xl font-bold text-primary">{formattedPrice}</p>
           {product.rating && (
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Star className="h-4 w-4 fill-accent text-accent" />
               <span>{product.rating.toFixed(1)}</span>
-              {product.numReviews && <span>({product.numReviews})</span>}
+              {product.numReviews && <span className="ml-0.5">({product.numReviews})</span>}
             </div>
           )}
         </div>
         <div className="flex flex-wrap gap-1">
           {product.colors.slice(0, 3).map(color => (
-             <Badge key={color} variant="outline" className="text-xs">{color}</Badge>
+             <Badge key={color} variant="outline" className="px-2 py-0.5 text-xs">{color}</Badge>
           ))}
-          {product.colors.length > 3 && <Badge variant="outline" className="text-xs">+{product.colors.length - 3} more</Badge>}
+          {product.colors.length > 3 && <Badge variant="outline" className="px-2 py-0.5 text-xs">+{product.colors.length - 3} more</Badge>}
         </div>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button asChild className="w-full bg-primary hover:bg-primary/90" variant="default">
+        <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90" variant="default">
           <Link href={`/products/${product.slug}`}>View Details</Link>
         </Button>
       </CardFooter>

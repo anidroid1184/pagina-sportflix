@@ -38,26 +38,28 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <ShoppingBag className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold">FitStyle</span>
+          <span className="text-xl font-bold tracking-tight">FitStyle</span>
         </Link>
-        <nav className="flex items-center gap-4 md:gap-6">
+        <nav className="flex items-center gap-2 md:gap-4">
           {isAuthenticated && (
-            <Link href="/orders" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              My Orders
-            </Link>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/orders" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+                My Orders
+              </Link>
+            </Button>
           )}
           {loading ? (
-            <div className="h-8 w-8 animate-pulse rounded-full bg-muted"></div>
+            <div className="h-9 w-9 animate-pulse rounded-full bg-muted"></div>
           ) : isAuthenticated && user ? (
              <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage src={`https://avatar.vercel.sh/${user.email}.png`} alt={user.name || user.email} />
+                <Button variant="ghost" className="relative h-9 w-9 rounded-full">
+                  <Avatar className="h-9 w-9">
+                    <AvatarImage src={`https://avatar.vercel.sh/${user.email}.png?size=36`} alt={user.name || user.email} />
                     <AvatarFallback>{getUserInitials()}</AvatarFallback>
                   </Avatar>
                 </Button>

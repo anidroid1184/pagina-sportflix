@@ -11,7 +11,7 @@ import {
 import { productCategories, productSizes, productColors } from '@/data/products';
 import type { ProductCategory, ProductSize } from '@/types';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
+import { X, Filter } from 'lucide-react';
 
 export interface Filters {
   category: ProductCategory | 'all';
@@ -39,17 +39,29 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
   };
 
   const resetFilters = () => {
-    onFilterChange({ category: 'all', size: 'all', color: 'all', searchTerm: '' });
+    onFilterChange({ category: 'all', size: 'all', color: 'all', searchTerm: filters.searchTerm }); // Keep search term
   };
+  
+  const clearAll = () => {
+    onFilterChange({ category: 'all', size: 'all', color: 'all', searchTerm: '' });
+  }
 
   return (
-    <aside className="w-full rounded-lg border bg-card p-6 shadow-sm md:w-72 lg:w-80">
-      <h3 className="mb-6 text-xl font-semibold">Filters</h3>
+    <aside className="w-full rounded-lg border bg-card p-6 shadow-lg md:w-72 lg:w-80">
+      <div className="mb-6 flex items-center justify-between">
+        <h3 className="flex items-center gap-2 text-xl font-semibold text-primary">
+          <Filter className="h-5 w-5" />
+          Filters
+        </h3>
+        <Button variant="ghost" size="sm" onClick={clearAll} className="text-xs text-muted-foreground hover:text-destructive">
+            Clear All
+        </Button>
+      </div>
       <div className="space-y-6">
         <div>
-          <label htmlFor="category-filter" className="mb-2 block text-sm font-medium">Category</label>
+          <label htmlFor="category-filter" className="mb-2 block text-sm font-medium text-foreground/90">Category</label>
           <Select value={filters.category} onValueChange={handleCategoryChange}>
-            <SelectTrigger id="category-filter">
+            <SelectTrigger id="category-filter" className="rounded-md">
               <SelectValue placeholder="Select category" />
             </SelectTrigger>
             <SelectContent>
@@ -62,9 +74,9 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
         </div>
 
         <div>
-          <label htmlFor="size-filter" className="mb-2 block text-sm font-medium">Size</label>
+          <label htmlFor="size-filter" className="mb-2 block text-sm font-medium text-foreground/90">Size</label>
           <Select value={filters.size} onValueChange={handleSizeChange}>
-            <SelectTrigger id="size-filter">
+            <SelectTrigger id="size-filter" className="rounded-md">
               <SelectValue placeholder="Select size" />
             </SelectTrigger>
             <SelectContent>
@@ -77,9 +89,9 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
         </div>
 
         <div>
-          <label htmlFor="color-filter" className="mb-2 block text-sm font-medium">Color</label>
+          <label htmlFor="color-filter" className="mb-2 block text-sm font-medium text-foreground/90">Color</label>
           <Select value={filters.color} onValueChange={handleColorChange}>
-            <SelectTrigger id="color-filter">
+            <SelectTrigger id="color-filter" className="rounded-md">
               <SelectValue placeholder="Select color" />
             </SelectTrigger>
             <SelectContent>
@@ -91,8 +103,8 @@ export function ProductFilter({ filters, onFilterChange }: ProductFilterProps) {
           </Select>
         </div>
         
-        <Button variant="outline" onClick={resetFilters} className="w-full">
-          <X className="mr-2 h-4 w-4" /> Reset Filters
+        <Button variant="outline" onClick={resetFilters} className="w-full rounded-md shadow-sm hover:shadow-md transition-shadow">
+          <X className="mr-2 h-4 w-4" /> Reset Filters (Keep Search)
         </Button>
       </div>
     </aside>

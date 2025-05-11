@@ -5,7 +5,7 @@ import { ProductCard } from '@/components/products/ProductCard';
 import { ProductFilter, type Filters } from '@/components/products/ProductFilter';
 import { products as allProducts } from '@/data/products';
 import { Input } from "@/components/ui/input";
-import { Search } from 'lucide-react';
+import { Search, PackageX } from 'lucide-react';
 import type { Product } from '@/types';
 
 export default function HomePage() {
@@ -39,40 +39,41 @@ export default function HomePage() {
   }, [filters]);
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-primary">Explore Our Collection</h1>
-        <p className="mt-2 text-lg text-muted-foreground">Find the perfect gear to elevate your performance.</p>
+    <div className="container mx-auto py-8 md:py-12">
+      <div className="mb-8 md:mb-12 text-center">
+        <h1 className="text-4xl font-bold tracking-tight text-primary md:text-5xl">Explore Our Collection</h1>
+        <p className="mt-3 text-lg text-muted-foreground md:text-xl">Find the perfect gear to elevate your performance.</p>
       </div>
       
-      <div className="mb-8 flex justify-center">
-        <div className="relative w-full max-w-xl">
+      <div className="mb-8 md:mb-10 flex justify-center px-4">
+        <div className="relative w-full max-w-2xl">
           <Input 
             type="search"
             placeholder="Search products, brands, or keywords..."
             value={filters.searchTerm}
             onChange={handleSearchChange}
-            className="h-12 rounded-full pl-12 text-base shadow-sm"
+            className="h-12 rounded-full pl-12 text-base shadow-lg focus-visible:ring-primary/80"
+            aria-label="Search products"
           />
           <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 md:flex-row">
+      <div className="flex flex-col gap-8 md:flex-row md:gap-10 px-2 sm:px-0">
         <ProductFilter filters={filters} onFilterChange={handleFilterChange} />
         <main className="flex-1">
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
-            <div className="flex h-full min-h-[400px] flex-col items-center justify-center rounded-lg border border-dashed bg-card p-8 text-center">
-              <Search className="mb-4 h-16 w-16 text-muted-foreground" />
-              <h2 className="text-2xl font-semibold">No Products Found</h2>
-              <p className="mt-2 text-muted-foreground">
-                Try adjusting your filters or search term.
+            <div className="flex min-h-[400px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted bg-card p-8 text-center shadow-sm">
+              <PackageX className="mb-6 h-20 w-20 text-muted-foreground/70" />
+              <h2 className="text-2xl font-semibold text-foreground">No Products Found</h2>
+              <p className="mt-2 max-w-sm text-muted-foreground">
+                We couldn&apos;t find any products matching your current filters or search term. Try adjusting them or browse all products.
               </p>
             </div>
           )}
