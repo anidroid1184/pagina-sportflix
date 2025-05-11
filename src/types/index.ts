@@ -1,5 +1,5 @@
 export type ProductSize = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
-export type ProductCategory = 'T-Shirt' | 'Shorts' | 'Hoodie' | 'Jacket' | 'Accessories' | 'Footwear';
+export type ProductCategory = 'T-Shirts' | 'Shorts' | 'Hoodies' | 'Jackets' | 'Leggings' | 'Bikers' | 'Footwear' | 'Accessories';
 
 export interface Product {
   id: string;
@@ -50,3 +50,4 @@ export interface User {
   email: string;
   name?: string;
 }
+

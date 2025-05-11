@@ -22,7 +22,7 @@ export const products: Product[] = [
       'https://picsum.photos/seed/prod1img2/600/600',
       'https://picsum.photos/seed/prod1img3/600/600',
     ],
-    category: 'T-Shirt',
+    category: 'T-Shirts',
     sizes: COMMON_SIZES,
     colors: getRandomElements(ALL_COLORS, 3),
     brand: 'FitStyle Pro',
@@ -62,7 +62,7 @@ export const products: Product[] = [
       'https://picsum.photos/seed/prod3img3/600/600',
       'https://picsum.photos/seed/prod3img4/600/600',
     ],
-    category: 'Hoodie',
+    category: 'Hoodies',
     sizes: ALL_SIZES,
     colors: getRandomElements(ALL_COLORS, 2),
     brand: 'Urban Comfort',
@@ -81,7 +81,7 @@ export const products: Product[] = [
       'https://picsum.photos/seed/prod4img1/600/600',
       'https://picsum.photos/seed/prod4img2/600/600',
     ],
-    category: 'Jacket',
+    category: 'Jackets',
     sizes: COMMON_SIZES,
     colors: ['Black', 'Navy', 'Charcoal'],
     brand: 'Endurance Gear',
@@ -136,7 +136,7 @@ export const products: Product[] = [
       'https://picsum.photos/seed/prod7img1/600/600',
       'https://picsum.photos/seed/prod7img2/600/600',
     ],
-    category: 'Shorts', // Technically leggings, but fits shorts/bottoms category best
+    category: 'Leggings',
     sizes: COMMON_SIZES,
     colors: getRandomElements(ALL_COLORS, 3),
     brand: 'ZenFit',
@@ -164,6 +164,25 @@ export const products: Product[] = [
     rating: 4.7,
     numReviews: 130,
   },
+  {
+    id: '9',
+    name: 'AeroCycle Biker Shorts',
+    slug: 'aerocycle-biker-shorts',
+    description: 'Comfortable and supportive biker shorts for cycling or fashion.',
+    longDescription: 'The AeroCycle Biker Shorts offer a perfect blend of performance and style. Featuring a comfortable chamois for long rides (optional based on final design) and a sleek, high-waisted fit that stays in place. Made with moisture-wicking, compressive fabric for support and breathability. Ideal for cycling, workouts, or as a fashion statement.',
+    price: 45.99,
+    images: [
+      'https://picsum.photos/seed/prod9img1/600/600',
+      'https://picsum.photos/seed/prod9img2/600/600',
+    ],
+    category: 'Bikers',
+    sizes: COMMON_SIZES,
+    colors: ['Black', 'Navy', 'Forest Green'],
+    brand: 'CyclePro',
+    stock: 110,
+    rating: 4.6,
+    numReviews: 70,
+  },
 ];
 
 export const getProductBySlug = (slug: string): Product | undefined => {
@@ -174,6 +193,7 @@ export const getProductById = (id: string): Product | undefined => {
   return products.find(product => product.id === id);
 };
 
-export const productCategories: ProductCategory[] = ['T-Shirt', 'Shorts', 'Hoodie', 'Jacket', 'Accessories', 'Footwear'];
+export const productCategories: ProductCategory[] = ['T-Shirts', 'Shorts', 'Hoodies', 'Jackets', 'Leggings', 'Bikers', 'Footwear', 'Accessories'];
 export const productSizes: ProductSize[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 export const productColors: string[] = Array.from(new Set(products.flatMap(p => p.colors))).sort();
+
