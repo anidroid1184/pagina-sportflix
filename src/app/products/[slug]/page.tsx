@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -58,7 +59,7 @@ export default function ProductDetailsPage() {
 
   const relatedProducts = allProducts
     .filter(p => p.category === product.category && p.id !== product.id)
-    .slice(0, 3);
+    .slice(0, 3); // Keep it to 3 related products for a cleaner look
 
   const handleAddToCart = () => {
     if (product.category !== "Accessories" && product.sizes.length > 0 && !selectedSize) {
@@ -80,7 +81,7 @@ export default function ProductDetailsPage() {
      toast({
         title: "¡Añadido a la lista de deseos!",
         description: `${product.name} ha sido añadido a tu lista de deseos.`,
-        className: "border-accent text-accent-foreground bg-accent/10", // Note: this might not render as intended with current theme vars, adjust if needed
+        className: "border-accent text-accent-foreground bg-accent/10",
     });
   }
 
@@ -195,7 +196,7 @@ export default function ProductDetailsPage() {
       {relatedProducts.length > 0 && (
         <section className="mt-12 md:mt-16">
           <h2 className="mb-6 text-2xl font-bold text-primary md:text-3xl">Productos Relacionados</h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {relatedProducts.map(relatedProduct => (
               <ProductCard key={relatedProduct.id} product={relatedProduct} />
             ))}
