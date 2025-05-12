@@ -1,9 +1,8 @@
-
 // @ts-nocheck
 'use client';
 
 import Link from 'next/link';
-import { ShoppingBag, User as UserIcon, LogIn, LogOut, ListOrdered, Search, Zap, Tag, Users, Menu, LayoutGrid, Share2 } from 'lucide-react';
+import { User as UserIcon, LogIn, LogOut, ListOrdered, Search, Zap, Tag, Users, Menu, LayoutGrid, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -27,6 +26,7 @@ import {
 import { useRouter } from 'next/navigation';
 import React from 'react'; 
 import { Separator } from '../ui/separator';
+import { SporflixLogo } from '@/components/icons/SporflixLogo'; // Import the new logo
 
 const navLinks = [
   { href: "/catalog", label: "Catálogo", icon: LayoutGrid },
@@ -65,8 +65,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-primary text-primary-foreground shadow-md">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-          <ShoppingBag className="h-7 w-7 text-primary-foreground" />
+        <Link href="/" className="flex items-center gap-2 h-full" onClick={() => setMobileMenuOpen(false)}>
+          <SporflixLogo className="h-7 w-7 text-primary-foreground" /> {/* Use SporflixLogo */}
           <span className="text-xl font-bold tracking-tight text-primary-foreground">Sporflix</span>
         </Link>
         
@@ -149,7 +149,7 @@ export function Navbar() {
                 <SheetHeader className="border-b border-primary-foreground/20 p-4">
                    <SheetTitle asChild>
                      <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                        <ShoppingBag className="h-7 w-7 text-primary-foreground" />
+                        <SporflixLogo className="h-7 w-7 text-primary-foreground" /> {/* Use SporflixLogo */}
                         <span className="text-xl font-bold tracking-tight text-primary-foreground">Sporflix</span>
                       </Link>
                    </SheetTitle>
@@ -228,4 +228,3 @@ export function Navbar() {
     </header>
   );
 }
-
