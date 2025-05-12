@@ -17,11 +17,15 @@ import {
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet"
 import { useRouter } from 'next/navigation';
-import React from 'react'; // Import React for useState
+import React from 'react'; 
+import { Separator } from '../ui/separator';
 
 const navLinks = [
   { href: "/about", label: "Sobre Nosotros", icon: Users },
@@ -38,6 +42,7 @@ export function Navbar() {
 
   const handleLogout = () => {
     logout();
+    setMobileMenuOpen(false); // Close mobile menu on logout
     router.push('/login');
   };
   
@@ -138,77 +143,80 @@ export function Navbar() {
                   <span className="sr-only">Abrir menú</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[280px] bg-primary text-primary-foreground p-0">
-                <div className="flex h-full flex-col">
-                  <div className="border-b border-primary-foreground/20 p-4">
+              <SheetContent side="left" className="w-[280px] bg-primary text-primary-foreground p-0 flex flex-col">
+                <SheetHeader className="border-b border-primary-foreground/20 p-4">
+                   <SheetTitle asChild>
                      <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                         <ShoppingBag className="h-7 w-7 text-primary-foreground" />
                         <span className="text-xl font-bold tracking-tight text-primary-foreground">Sporflix</span>
                       </Link>
-                  </div>
-                  <nav className="flex-grow space-y-2 p-4">
-                    {navLinks.map(link => {
-                      const Icon = link.icon;
-                      return (
-                        <SheetClose asChild key={link.label}>
-                          <Link
-                            href={link.href}
-                            className="flex items-center gap-3 rounded-md px-3 py-2 text-base font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-                          >
-                            <Icon className="h-5 w-5" />
-                            {link.label}
-                          </Link>
-                        </SheetClose>
-                      );
-                    })}
-                    <hr className="my-3 border-primary-foreground/20" />
-                     {isAuthenticated && (
-                       <SheetClose asChild>
-                          <Link 
-                            href="/orders" 
-                            className="flex items-center gap-3 rounded-md px-3 py-2 text-base font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-                          >
-                            <ListOrdered className="mr-2 h-5 w-5" />
-                            Mis Pedidos
-                          </Link>
-                        </SheetClose>
-                    )}
-                  </nav>
-                  <div className="border-t border-primary-foreground/20 p-4">
-                    {loading ? (
-                      <div className="h-10 animate-pulse rounded-md bg-primary-foreground/20"></div>
-                    ) : isAuthenticated && user ? (
-                      <div className="flex flex-col space-y-2">
-                         <div className="flex items-center gap-2">
-                            <Avatar className="h-9 w-9">
-                              <AvatarImage src={`https://avatar.vercel.sh/${user.email}.png?size=36`} alt={user.name || user.email} />
-                              <AvatarFallback className="bg-primary-foreground/20 text-primary-foreground">{getUserInitials()}</AvatarFallback>
-                            </Avatar>
-                            <div>
-                               <p className="text-sm font-medium leading-none">{user.name || "Usuario"}</p>
-                                <p className="text-xs leading-none text-primary-foreground/80">
-                                  {user.email}
-                                </p>
-                            </div>
-                         </div>
-                        <SheetClose asChild>
-                          <Button onClick={handleLogout} variant="outline" className="w-full justify-start bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                            <LogOut className="mr-2 h-4 w-4" />
-                            Cerrar Sesión
-                          </Button>
-                        </SheetClose>
-                      </div>
-                    ) : (
+                   </SheetTitle>
+                </SheetHeader>
+                <nav className="flex-grow space-y-1 p-4 overflow-y-auto">
+                  {navLinks.map(link => {
+                    const Icon = link.icon;
+                    return (
+                      <SheetClose asChild key={link.label}>
+                        <Link
+                          href={link.href}
+                          className="flex items-center gap-3 rounded-md px-3 py-2.5 text-base font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                        >
+                          <Icon className="h-5 w-5" />
+                          {link.label}
+                        </Link>
+                      </SheetClose>
+                    );
+                  })}
+                  
+                  {isAuthenticated && (
+                    <>
+                      <Separator className="my-2 bg-primary-foreground/20" />
                       <SheetClose asChild>
-                        <Button asChild variant="outline" className="w-full justify-start bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                          <Link href="/login">
-                            <LogIn className="mr-2 h-4 w-4" />
-                            Iniciar Sesión
-                          </Link>
+                        <Link 
+                          href="/orders" 
+                          className="flex items-center gap-3 rounded-md px-3 py-2.5 text-base font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                        >
+                          <ListOrdered className="h-5 w-5" />
+                          Mis Pedidos
+                        </Link>
+                      </SheetClose>
+                    </>
+                  )}
+                </nav>
+                <div className="mt-auto border-t border-primary-foreground/20 p-4">
+                  {loading ? (
+                    <div className="h-10 animate-pulse rounded-md bg-primary-foreground/20"></div>
+                  ) : isAuthenticated && user ? (
+                    <div className="flex flex-col space-y-3">
+                       <div className="flex items-center gap-3 px-3">
+                          <Avatar className="h-10 w-10">
+                            <AvatarImage src={`https://avatar.vercel.sh/${user.email}.png?size=40`} alt={user.name || user.email} />
+                            <AvatarFallback className="bg-primary-foreground/20 text-primary-foreground text-sm">{getUserInitials()}</AvatarFallback>
+                          </Avatar>
+                          <div className="truncate">
+                             <p className="text-sm font-medium leading-tight truncate">{user.name || "Usuario"}</p>
+                              <p className="text-xs leading-tight text-primary-foreground/80 truncate">
+                                {user.email}
+                              </p>
+                          </div>
+                       </div>
+                      <SheetClose asChild>
+                        <Button onClick={handleLogout} variant="outline" className="w-full justify-start bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                          <LogOut className="mr-2 h-4 w-4" />
+                          Cerrar Sesión
                         </Button>
                       </SheetClose>
-                    )}
-                  </div>
+                    </div>
+                  ) : (
+                    <SheetClose asChild>
+                      <Button asChild variant="outline" className="w-full justify-start bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                        <Link href="/login">
+                          <LogIn className="mr-2 h-4 w-4" />
+                          Iniciar Sesión
+                        </Link>
+                      </Button>
+                    </SheetClose>
+                  )}
                 </div>
               </SheetContent>
             </Sheet>
