@@ -19,7 +19,7 @@ export default function TrendingPage() {
 
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <header className="mb-12 text-center">
+      <header className="mb-12 text-center motion-safe:animate-fade-in-down">
         <Zap className="mx-auto h-16 w-16 text-accent mb-4" />
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
           Tendencias Sporflix
@@ -32,7 +32,11 @@ export default function TrendingPage() {
       {trendingProducts.length > 0 ? (
         <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {trendingProducts.map((product, index) => (
-            <Card key={product.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group flex flex-col">
+            <Card 
+              key={product.id} 
+              className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group flex flex-col motion-safe:animate-scale-in"
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
               <Link href={`/products/${product.slug}`} className="block">
                 <div className="relative h-72 w-full">
                   <Image
@@ -84,14 +88,14 @@ export default function TrendingPage() {
           ))}
         </section>
       ) : (
-        <div className="text-center py-10">
+        <div className="text-center py-10 motion-safe:animate-fade-in-up">
           <p className="text-xl text-muted-foreground">
             Actualmente no hay productos destacados en tendencias. ¡Vuelve pronto!
           </p>
         </div>
       )}
 
-      <section className="mt-16 text-center py-10 bg-muted/50 rounded-lg shadow-md">
+      <section className="mt-16 text-center py-10 bg-muted/50 rounded-lg shadow-md motion-safe:animate-fade-in-up">
         <h2 className="text-3xl font-semibold text-primary mb-3">¿Buscas algo más?</h2>
         <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-6">
           Explora nuestro catálogo completo para encontrar exactamente lo que necesitas para tu próxima aventura deportiva.

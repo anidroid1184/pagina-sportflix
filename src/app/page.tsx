@@ -31,7 +31,7 @@ export default function HomePage() {
           priority
           data-ai-hint="sports fashion"
         />
-        <div className="relative z-10 p-6 container mx-auto">
+        <div className="relative z-10 p-6 container mx-auto motion-safe:animate-fade-in-down">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
             Bienvenido a Sporflix
           </h1>
@@ -50,7 +50,7 @@ export default function HomePage() {
       </section>
 
       {/* About Us Snippet */}
-      <section className="py-12 md:py-16 bg-background">
+      <section className="py-12 md:py-16 bg-background motion-safe:animate-fade-in-up">
         <div className="container mx-auto px-4 text-center">
           <Info className="mx-auto h-12 w-12 text-primary mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Conócenos Mejor</h2>
@@ -67,7 +67,7 @@ export default function HomePage() {
 
       {/* Trending Products Section */}
       {featuredProducts.length > 0 && (
-        <section className="py-12 md:py-16 bg-muted/50">
+        <section className="py-12 md:py-16 bg-muted/50 motion-safe:animate-fade-in-up">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
               <Sparkles className="mx-auto h-12 w-12 text-accent mb-4" />
@@ -91,7 +91,7 @@ export default function HomePage() {
       )}
 
       {/* Final CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-accent/70 to-primary/70 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-r from-accent/70 to-primary/70 text-white motion-safe:animate-fade-in-up">
         <div className="container mx-auto px-4 text-center">
           <ShoppingCartIcon className="mx-auto h-12 w-12 mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Listo para Equiparte?</h2>

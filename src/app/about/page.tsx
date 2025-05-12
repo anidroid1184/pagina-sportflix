@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function AboutPage() {
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <header className="mb-12 text-center">
+      <header className="mb-12 text-center motion-safe:animate-fade-in-down">
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
           Sobre Sporflix
         </h1>
@@ -18,7 +18,7 @@ export default function AboutPage() {
       <section className="mb-16">
         <Card className="overflow-hidden shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="relative h-64 md:h-full min-h-[300px]">
+            <div className="relative h-64 md:h-full min-h-[300px] motion-safe:animate-fade-in">
               <Image
                 src="https://picsum.photos/seed/aboutus/800/600"
                 alt="Equipo de Sporflix trabajando"
@@ -28,7 +28,7 @@ export default function AboutPage() {
                 data-ai-hint="team working"
               />
             </div>
-            <div className="p-8 md:p-10 flex flex-col justify-center">
+            <div className="p-8 md:p-10 flex flex-col justify-center motion-safe:animate-fade-in-up">
               <CardHeader className="p-0 mb-4">
                 <CardTitle className="text-3xl font-semibold text-primary">Nuestra Pasión por el Deporte</CardTitle>
               </CardHeader>
@@ -49,7 +49,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300 motion-safe:animate-fade-in-up">
           <CardHeader>
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
               <Target className="h-8 w-8" />
@@ -63,7 +63,7 @@ export default function AboutPage() {
           </CardContent>
         </Card>
 
-        <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300 motion-safe:animate-fade-in-up [animation-delay:0.1s]">
           <CardHeader>
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
               <Users className="h-8 w-8" />
@@ -77,7 +77,7 @@ export default function AboutPage() {
           </CardContent>
         </Card>
 
-        <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300 motion-safe:animate-fade-in-up [animation-delay:0.2s]">
           <CardHeader>
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
               <MapPin className="h-8 w-8" />
@@ -93,7 +93,7 @@ export default function AboutPage() {
         </Card>
       </section>
       
-      <section className="text-center py-10 bg-muted/50 rounded-lg shadow-md">
+      <section className="text-center py-10 bg-muted/50 rounded-lg shadow-md motion-safe:animate-fade-in-up">
         <Coffee className="mx-auto h-12 w-12 text-primary mb-4" />
         <h2 className="text-3xl font-semibold text-primary mb-3">¿Quieres unirte a nuestra comunidad?</h2>
         <p className="text-lg text-foreground/80 max-w-2xl mx-auto">

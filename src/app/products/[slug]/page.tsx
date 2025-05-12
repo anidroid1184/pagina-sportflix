@@ -87,12 +87,14 @@ export default function ProductDetailsPage() {
 
   return (
     <div className="container mx-auto py-8 md:py-12">
-      <Button variant="outline" onClick={() => router.back()} className="mb-6 text-sm">
+      <Button variant="outline" onClick={() => router.back()} className="mb-6 text-sm motion-safe:animate-fade-in">
         <ChevronLeft className="mr-2 h-4 w-4" /> Volver a Productos
       </Button>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
-        <ImageGallery images={product.images} altText={product.name} />
-        <div className="flex flex-col">
+        <div className="motion-safe:animate-scale-in">
+          <ImageGallery images={product.images} altText={product.name} />
+        </div>
+        <div className="flex flex-col motion-safe:animate-fade-in-up">
           <Card className="flex-grow shadow-lg">
             <CardHeader>
               <p className="mb-1 text-sm font-medium text-primary">{product.brand}</p>
@@ -194,7 +196,7 @@ export default function ProductDetailsPage() {
       </div>
 
       {relatedProducts.length > 0 && (
-        <section className="mt-12 md:mt-16">
+        <section className="mt-12 md:mt-16 motion-safe:animate-fade-in-up">
           <h2 className="mb-6 text-2xl font-bold text-primary md:text-3xl">Productos Relacionados</h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {relatedProducts.map(relatedProduct => (

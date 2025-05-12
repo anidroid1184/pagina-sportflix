@@ -6,9 +6,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Package, Calendar, DollarSign, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import type { CSSProperties } from 'react';
 
 interface OrderListItemProps {
   order: Order;
+  style?: CSSProperties;
 }
 
 const translateStatus = (status: Order['status']): string => {
@@ -22,7 +24,7 @@ const translateStatus = (status: Order['status']): string => {
   }
 };
 
-export function OrderListItem({ order }: OrderListItemProps) {
+export function OrderListItem({ order, style }: OrderListItemProps) {
   const orderDate = new Date(order.date).toLocaleDateString('es-ES', { // Using es-ES for Spanish date format
     year: 'numeric',
     month: 'long',
@@ -39,7 +41,13 @@ export function OrderListItem({ order }: OrderListItemProps) {
   };
 
   return (
-    <Card className="overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg">
+    <Card 
+      className={cn(
+        "overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg",
+        "motion-safe:animate-fade-in-up"
+      )}
+      style={style}
+    >
       <CardHeader className="bg-muted/30 p-4 sm:p-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>

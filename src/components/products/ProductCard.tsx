@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 interface ProductCardProps {
   product: Product;
@@ -19,7 +20,10 @@ export function ProductCard({ product }: ProductCardProps) {
   });
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden rounded-lg border shadow-lg transition-shadow duration-300 hover:shadow-xl">
+    <Card className={cn(
+        "flex h-full flex-col overflow-hidden rounded-lg border shadow-lg transition-shadow duration-300 hover:shadow-xl",
+        "motion-safe:animate-scale-in"
+      )}>
       <CardHeader className="p-0">
         <Link href={`/products/${product.slug}`} className="block">
           <div className="aspect-square overflow-hidden">

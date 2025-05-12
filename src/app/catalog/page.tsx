@@ -103,7 +103,7 @@ export default function CatalogPage() {
 
   return (
     <div className="container mx-auto py-8 md:py-12">
-      <div className="mb-8 md:mb-12 text-center">
+      <div className="mb-8 md:mb-12 text-center motion-safe:animate-fade-in-down">
         <h1 className="text-4xl font-bold tracking-tight text-primary md:text-5xl">Catálogo de Productos Sporflix</h1>
         <p className="mt-3 text-lg text-foreground md:text-xl">
           Encuentra el equipamiento perfecto para tu estilo de vida activo.
@@ -116,7 +116,7 @@ export default function CatalogPage() {
           style={{ backgroundImage: "url('https://picsum.photos/seed/sportbanner/1200/400')" }}
           data-ai-hint="sports banner"
         >
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 flex flex-col items-center justify-center text-center p-4">
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 flex flex-col items-center justify-center text-center p-4 motion-safe:animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">¡Nuevas Colecciones!</h2>
             <p className="text-base md:text-lg lg:text-xl text-primary-foreground/90 mb-6 md:mb-8 max-w-xl">
               Descubre lo último en moda deportiva. Rendimiento y estilo en cada prenda.
@@ -128,7 +128,7 @@ export default function CatalogPage() {
         </div>
       </div>
       
-      <div className="mb-8 md:mb-10 flex justify-center px-4">
+      <div className="mb-8 md:mb-10 flex justify-center px-4 motion-safe:animate-fade-in">
         <div className="relative w-full max-w-2xl">
           <Input 
             type="search"
@@ -143,7 +143,7 @@ export default function CatalogPage() {
       </div>
 
       {isMobile && (
-        <div className="mb-6 px-2 sm:px-0">
+        <div className="mb-6 px-2 sm:px-0 motion-safe:animate-fade-in">
           <Sheet open={isFilterSheetOpen} onOpenChange={setIsFilterSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" className="w-full">
@@ -178,7 +178,7 @@ export default function CatalogPage() {
 
       <div id="product-grid" className="flex flex-col gap-8 md:flex-row md:gap-10 px-2 sm:px-0">
         {!isMobile && (
-          <aside className="w-full rounded-lg border bg-card p-6 shadow-lg md:w-72 lg:w-80 self-start sticky top-20">
+          <aside className="w-full rounded-lg border bg-card p-6 shadow-lg md:w-72 lg:w-80 self-start sticky top-20 motion-safe:animate-fade-in">
             <div className="mb-6 flex items-center justify-between">
               <h3 className="flex items-center gap-2 text-xl font-semibold text-primary">
                 <FilterIcon className="h-5 w-5" />
@@ -200,7 +200,7 @@ export default function CatalogPage() {
               ))}
             </div>
           ) : (
-            <div className="flex min-h-[400px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted bg-card p-8 text-center shadow-sm">
+            <div className="flex min-h-[400px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted bg-card p-8 text-center shadow-sm motion-safe:animate-fade-in-up">
               <PackageX className="mb-6 h-20 w-20 text-muted-foreground/70" />
               <h2 className="text-2xl font-semibold text-foreground">No Se Encontraron Productos</h2>
               <p className="mt-2 max-w-sm text-muted-foreground">

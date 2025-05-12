@@ -16,7 +16,7 @@ const socialLinks = [
 export default function SocialPage() {
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <header className="mb-12 text-center">
+      <header className="mb-12 text-center motion-safe:animate-fade-in-down">
         <Users className="mx-auto h-16 w-16 text-accent mb-4" />
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
           Conéctate con la Comunidad Sporflix
@@ -27,10 +27,14 @@ export default function SocialPage() {
       </header>
 
       <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-16">
-        {socialLinks.map((social) => {
+        {socialLinks.map((social, index) => {
           const Icon = social.icon;
           return (
-            <Card key={social.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center group">
+            <Card 
+              key={social.name} 
+              className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center group motion-safe:animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <CardHeader className={`w-full p-6 ${social.color} text-white flex flex-col items-center`}>
                 <Icon className="h-12 w-12 mb-3" />
                 <CardTitle className="text-2xl font-semibold">{social.name}</CardTitle>
@@ -49,7 +53,7 @@ export default function SocialPage() {
         })}
       </section>
       
-      <section className="mb-16">
+      <section className="mb-16 motion-safe:animate-fade-in-up">
         <Card className="shadow-xl bg-gradient-to-r from-primary/10 via-background to-accent/10">
             <CardHeader className="text-center pb-4">
                 <MessageSquare className="mx-auto h-12 w-12 text-primary mb-3" />
@@ -75,7 +79,7 @@ export default function SocialPage() {
         </Card>
       </section>
 
-      <section className="text-center py-10">
+      <section className="text-center py-10 motion-safe:animate-fade-in-up">
         <h2 className="text-3xl font-semibold text-primary mb-3">¿Listo para explorar más?</h2>
         <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-6">
           Vuelve a nuestro catálogo y encuentra las prendas perfectas para tu estilo de vida activo.
