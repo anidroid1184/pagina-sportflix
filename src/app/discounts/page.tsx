@@ -32,7 +32,7 @@ export default function DiscountsPage() {
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <header className="mb-12 text-center">
-        <Tag className="mx-auto h-16 w-16 text-destructive mb-4" />
+        <Tag className="mx-auto h-16 w-16 text-accent mb-4" />
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
           Ofertas Imperdibles en Sporflix
         </h1>
@@ -44,7 +44,7 @@ export default function DiscountsPage() {
       {discountedProducts.length > 0 ? (
         <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {discountedProducts.map(product => (
-            <Card key={product.id} className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col border-destructive/30 hover:border-destructive">
+            <Card key={product.id} className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col border-accent/30 hover:border-accent">
               <Link href={`/products/${product.slug}`} className="block">
                 <div className="relative h-72 w-full">
                   <Image
@@ -55,14 +55,14 @@ export default function DiscountsPage() {
                     className="transition-transform duration-500 group-hover:scale-105"
                     data-ai-hint={`${product.category} ${product.colors[0]}`}
                   />
-                  <Badge variant="destructive" className="absolute top-3 left-3 text-base px-3 py-1.5 shadow-lg">
+                  <Badge variant="secondary" className="absolute top-3 left-3 text-base px-3 py-1.5 shadow-lg">
                     <Percent className="mr-1.5 h-5 w-5" /> {product.discountPercentage}% OFF
                   </Badge>
                 </div>
               </Link>
               <CardHeader className="p-6">
                 <Link href={`/products/${product.slug}`} className="block">
-                  <CardTitle className="text-2xl font-semibold text-primary group-hover:text-destructive transition-colors">
+                  <CardTitle className="text-2xl font-semibold text-primary group-hover:text-accent transition-colors">
                     {product.name}
                   </CardTitle>
                 </Link>
@@ -71,7 +71,7 @@ export default function DiscountsPage() {
               <CardContent className="p-6 pt-0 flex-grow">
                 <p className="text-foreground/80 line-clamp-3 mb-4">{product.description}</p>
                 <div className="flex items-baseline gap-2 mb-2">
-                  <p className="text-3xl font-bold text-destructive">
+                  <p className="text-3xl font-bold text-accent">
                     {product.price.toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </p>
                   <p className="text-lg text-muted-foreground line-through">
@@ -84,7 +84,7 @@ export default function DiscountsPage() {
                 </div>
               </CardContent>
               <CardFooter className="p-6 pt-0 border-t mt-auto">
-                <Button asChild size="lg" className="w-full mt-4 bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors">
+                <Button asChild size="lg" className="w-full mt-4 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors">
                   <Link href={`/products/${product.slug}`} className="flex items-center justify-center">
                     <ShoppingCart className="mr-2 h-5 w-5" /> ¡Lo Quiero!
                   </Link>
