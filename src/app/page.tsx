@@ -1,17 +1,25 @@
 
-// @ts-nocheck
 'use client';
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { ProductCard } from '@/components/products/ProductCard';
-import { ProductFilter, type Filters } from '@/components/products/ProductFilter';
 import { products as allProducts } from '@/data/products';
 import { Input } from "@/components/ui/input";
-import { Search, PackageX } from 'lucide-react';
-import type { Product } from '@/types';
+import { Search, PackageX, Filter as FilterIcon } from 'lucide-react';
+import type { Product, Filters } from '@/types'; // Import Filters from types
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { ProductFilterContent } from '@/components/products/ProductFilterContent'; // New import
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function HomePage() {
   const [filters, setFilters] = useState<Filters>({
@@ -21,6 +29,9 @@ export default function HomePage() {
     searchTerm: '',
   });
 
+  const isMobile = useIsMobile();
+  const [isFilterSheetOpen, setIsFilterSheetOpen] = useState(false);
+
   const handleFilterChange = (newFilters: Filters) => {
     setFilters(newFilters);
   };
@@ -28,6 +39,17 @@ export default function HomePage() {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilters(prev => ({ ...prev, searchTerm: event.target.value }));
   };
+  
+  const clearAllFiltersAndSearch = () => {
+    setFilters({ category: 'all', size: 'all', color: 'all', searchTerm: '' });
+    if (isMobile) setIsFilterSheetOpen(false);
+  };
+
+  const resetDisplayFiltersOnly = () => { 
+    setFilters(prev => ({ ...prev, category: 'all', size: 'all', color: 'all' }));
+    // Do not close sheet here, let user decide or apply button close it.
+  };
+
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter((product: Product) => {
@@ -43,6 +65,45 @@ export default function HomePage() {
     });
   }, [filters]);
 
+  const filterContentComponent = (
+    <ProductFilterContent 
+      filters={filters}
+      onFilterChange={handleFilterChange} 
+      onResetFilters={resetDisplayFiltersOnly} // This is for the "Restablecer (mantener búsqueda)" button
+    />
+  );
+
+  if (isMobile === undefined) { // Check for undefined specifically for initial load
+      return (
+          <div className="container mx-auto py-8 md:py-12">
+              <div className="animate-pulse">
+                  <div className="h-24 bg-muted rounded-md mb-8"></div> {/* Placeholder for hero */}
+                  <div className="h-64 bg-muted rounded-lg mb-10"></div> {/* Placeholder for banner */}
+                  <div className="h-12 bg-muted rounded-full w-full max-w-2xl mx-auto mb-8"></div> {/* Placeholder for search */}
+                  
+                  <div className="md:hidden h-10 bg-muted rounded-md mb-6 w-full"></div> {/* Placeholder for mobile filter button */}
+
+                  <div className="flex flex-col md:flex-row gap-8 md:gap-10 px-2 sm:px-0">
+                      <div className="hidden md:block w-72 lg:w-80 h-96 bg-muted rounded-lg"></div> {/* Placeholder for desktop filter */}
+                      <main className="flex-1 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                          {[...Array(4)].map((_, i) => (
+                              <div key={i} className="h-80 bg-muted rounded-lg">
+                                  <div className="h-48 bg-muted/50 rounded-t-lg"></div>
+                                  <div className="p-4 space-y-2">
+                                      <div className="h-6 bg-muted/50 rounded"></div>
+                                      <div className="h-4 bg-muted/50 rounded w-3/4"></div>
+                                      <div className="h-8 bg-muted/50 rounded w-1/2"></div>
+                                  </div>
+                              </div>
+                          ))}
+                      </main>
+                  </div>
+              </div>
+          </div>
+      )
+  }
+
+
   return (
     <div className="container mx-auto py-8 md:py-12">
       <div className="mb-8 md:mb-12 text-center">
@@ -52,7 +113,6 @@ export default function HomePage() {
         </p>
       </div>
 
-      {/* Banner Section */}
       <div className="mb-10 md:mb-12 rounded-lg overflow-hidden shadow-2xl">
         <div 
           className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center group"
@@ -85,8 +145,56 @@ export default function HomePage() {
         </div>
       </div>
 
+      {isMobile && (
+        <div className="mb-6 px-2 sm:px-0">
+          <Sheet open={isFilterSheetOpen} onOpenChange={setIsFilterSheetOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" className="w-full">
+                <FilterIcon className="mr-2 h-5 w-5" />
+                Mostrar Filtros
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[300px] sm:w-[340px] overflow-y-auto flex flex-col p-0">
+              <SheetHeader className="p-6 mb-0 border-b">
+                <SheetTitle className="flex items-center justify-between">
+                  <span className="flex items-center gap-2 text-xl font-semibold text-primary">
+                    <FilterIcon className="h-5 w-5" />
+                    Filtros
+                  </span>
+                  <Button variant="ghost" size="sm" onClick={clearAllFiltersAndSearch} className="text-xs text-muted-foreground hover:text-destructive">
+                    Limpiar Todo
+                  </Button>
+                </SheetTitle>
+              </SheetHeader>
+              <div className="flex-grow p-6 overflow-y-auto">
+                {filterContentComponent}
+              </div>
+              <div className="p-6 border-t mt-auto">
+                <SheetClose asChild>
+                  <Button variant="default" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Aplicar Filtros</Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      )}
+
       <div id="product-grid" className="flex flex-col gap-8 md:flex-row md:gap-10 px-2 sm:px-0">
-        <ProductFilter filters={filters} onFilterChange={handleFilterChange} />
+        {!isMobile && (
+          <aside className="w-full rounded-lg border bg-card p-6 shadow-lg md:w-72 lg:w-80 self-start sticky top-20">
+            <div className="mb-6 flex items-center justify-between">
+              <h3 className="flex items-center gap-2 text-xl font-semibold text-primary">
+                <FilterIcon className="h-5 w-5" />
+                Filtros
+              </h3>
+              <Button variant="ghost" size="sm" onClick={clearAllFiltersAndSearch} className="text-xs text-muted-foreground hover:text-destructive">
+                  Limpiar Todo
+              </Button>
+            </div>
+            {filterContentComponent}
+          </aside>
+        )}
+        
         <main className="flex-1">
           {filteredProducts.length > 0 ? (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

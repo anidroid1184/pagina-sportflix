@@ -51,3 +51,9 @@ export interface User {
   name?: string;
 }
 
+export interface Filters {
+  category: ProductCategory | 'all';
+  size: ProductSize | 'all';
+  color: string | 'all';
+  searchTerm?: string;
+}
