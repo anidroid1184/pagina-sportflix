@@ -107,7 +107,7 @@ export default function DiscountsPage() {
           Nuestro catálogo completo está lleno de productos increíbles. ¡Seguro encuentras algo que te encante!
         </p>
         <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-          <Link href="/">Ver Catálogo Completo</Link>
+          <Link href="/catalog">Ver Catálogo Completo</Link>
         </Button>
       </section>
     </div>

@@ -81,7 +81,7 @@ export default function SocialPage() {
           Vuelve a nuestro catálogo y encuentra las prendas perfectas para tu estilo de vida activo.
         </p>
         <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-          <Link href="/">Ir al Catálogo</Link>
+          <Link href="/catalog">Ir al Catálogo</Link>
         </Button>
       </section>
     </div>

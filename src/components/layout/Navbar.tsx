@@ -1,8 +1,9 @@
+
 // @ts-nocheck
 'use client';
 
 import Link from 'next/link';
-import { ShoppingBag, User as UserIcon, LogIn, LogOut, ListOrdered, Search, Zap, Tag, Users, Menu } from 'lucide-react';
+import { ShoppingBag, User as UserIcon, LogIn, LogOut, ListOrdered, Search, Zap, Tag, Users, Menu, LayoutGrid, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -28,11 +29,12 @@ import React from 'react';
 import { Separator } from '../ui/separator';
 
 const navLinks = [
+  { href: "/catalog", label: "Catálogo", icon: LayoutGrid },
   { href: "/about", label: "Sobre Nosotros", icon: Users },
   { href: "/search", label: "Buscar", icon: Search },
   { href: "/trending", label: "Tendencias", icon: Zap },
   { href: "/discounts", label: "Descuentos", icon: Tag },
-  { href: "/social", label: "Redes", icon: Users }, // Placeholder icon, consider specific social icons
+  { href: "/social", label: "Redes", icon: Share2 }, 
 ];
 
 export function Navbar() {
@@ -63,7 +65,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-primary text-primary-foreground shadow-md">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
           <ShoppingBag className="h-7 w-7 text-primary-foreground" />
           <span className="text-xl font-bold tracking-tight text-primary-foreground">Sporflix</span>
         </Link>

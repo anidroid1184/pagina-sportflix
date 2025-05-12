@@ -97,7 +97,7 @@ export default function TrendingPage() {
           Explora nuestro catálogo completo para encontrar exactamente lo que necesitas para tu próxima aventura deportiva.
         </p>
         <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-          <Link href="/">Explorar Catálogo</Link>
+          <Link href="/catalog">Explorar Catálogo</Link>
         </Button>
       </section>
     </div>
