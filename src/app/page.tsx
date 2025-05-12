@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Search, PackageX } from 'lucide-react';
 import type { Product } from '@/types';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function HomePage() {
   const [filters, setFilters] = useState<Filters>({
@@ -50,18 +51,23 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="mb-8 flex justify-center">
-        <Link href="/" className="group">
-          <Image 
-            src="https://picsum.photos/seed/sportflixlogo/150/150" 
-            alt="Sporflix Logo" 
-            width={100} 
-            height={100} 
-            className="rounded-full shadow-lg transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:shadow-2xl mb-6"
-            data-ai-hint="logo brand"
-            priority
-          />
-        </Link>
+      {/* Banner Section */}
+      <div className="mb-10 md:mb-12 rounded-lg overflow-hidden shadow-2xl">
+        <div 
+          className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center group"
+          style={{ backgroundImage: "url('https://picsum.photos/seed/sportbanner/1200/400')" }}
+          data-ai-hint="sports banner"
+        >
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 flex flex-col items-center justify-center text-center p-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">¡Nuevas Colecciones!</h2>
+            <p className="text-base md:text-lg lg:text-xl text-primary-foreground/90 mb-6 md:mb-8 max-w-xl">
+              Descubre lo último en moda deportiva. Rendimiento y estilo en cada prenda.
+            </p>
+            <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg transform transition-transform group-hover:scale-105">
+              <Link href="#product-grid">Explorar Ahora</Link>
+            </Button>
+          </div>
+        </div>
       </div>
       
       <div className="mb-8 md:mb-10 flex justify-center px-4">
@@ -78,7 +84,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 md:flex-row md:gap-10 px-2 sm:px-0">
+      <div id="product-grid" className="flex flex-col gap-8 md:flex-row md:gap-10 px-2 sm:px-0">
         <ProductFilter filters={filters} onFilterChange={handleFilterChange} />
         <main className="flex-1">
           {filteredProducts.length > 0 ? (
