@@ -17,6 +17,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Sporflix - Tu Equipo para el Éxito Deportivo',
   description: 'En Sporflix, encuentra la mejor ropa y accesorios deportivos. Tu comodidad, tu deporte, tu estilo.',
+  icons: {
+    icon: '/images/favicon.ico', // Assuming favicon is named favicon.ico and placed in public/images
+    // apple: '/images/apple-touch-icon.png', // Example for apple touch icon
+  },
 };
 
 export default function RootLayout({
