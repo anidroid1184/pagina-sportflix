@@ -113,8 +113,8 @@ export default function CatalogPage() {
       <div className="mb-10 md:mb-12 rounded-lg overflow-hidden shadow-2xl">
         <div 
           className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center group"
-          style={{ backgroundImage: "url('/images/banner.png')" }}
- data-ai-hint="sports banner"
+          style={{ backgroundImage: "url('/images/banner-catalogo.png')" }}
+          data-ai-hint="sports banner"
         >
           <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 transition-colors duration-300 flex flex-col items-center justify-center text-center p-4 motion-safe:animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">¡Nuevas Colecciones!</h2>
