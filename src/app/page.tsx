@@ -23,7 +23,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] md:h-[70vh] md:min-h-[500px] flex items-center justify-center text-center text-white bg-gradient-to-br from-primary via-primary/80 to-accent/60">
         <Image
-          src="https://picsum.photos/seed/homehero/1600/900"
+          src="/images/banner.png"
           alt="Ropa deportiva de alta calidad"
           layout="fill"
           objectFit="cover"
