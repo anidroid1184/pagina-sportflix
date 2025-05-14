@@ -1,3 +1,4 @@
+
 // @ts-nocheck
 'use client';
 
@@ -27,7 +28,6 @@ import {
 import { useRouter } from 'next/navigation';
 import React from 'react'; 
 import { Separator } from '../ui/separator';
-// Removed SporflixLogo import: import { SporflixLogo } from '@/components/icons/SporflixLogo'; 
 
 const navLinks = [
   { href: "/catalog", label: "Catálogo", icon: LayoutGrid },
@@ -67,15 +67,14 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-primary text-primary-foreground shadow-md">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 h-full" onClick={() => setMobileMenuOpen(false)}>
-          {/* Use Image component for PNG logo */}
           <Image 
             src="/images/logo.png" 
-            alt="Sporflix Logo" 
-            width={28} // Adjust as needed, e.g., 28 for h-7
-            height={28} // Adjust as needed, e.g., 28 for w-7
-            className="text-primary-foreground" // Keep if you want to apply text color as filter or if it's an SVG-like PNG
+            alt="SPORFLIX Logo" 
+            width={28} 
+            height={28} 
+            className="text-primary-foreground" 
           />
-          <span className="text-xl font-bold tracking-tight text-primary-foreground">Sporflix</span>
+          <span className="text-xl font-bold tracking-tight text-primary-foreground">SPORFLIX</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -157,15 +156,14 @@ export function Navbar() {
                 <SheetHeader className="border-b border-primary-foreground/20 p-4">
                    <SheetTitle asChild>
                      <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                        {/* Use Image component for PNG logo in mobile menu */}
                         <Image 
                           src="/images/logo.png" 
-                          alt="Sporflix Logo" 
+                          alt="SPORFLIX Logo" 
                           width={28} 
                           height={28}
                           className="text-primary-foreground"
                         />
-                        <span className="text-xl font-bold tracking-tight text-primary-foreground">Sporflix</span>
+                        <span className="text-xl font-bold tracking-tight text-primary-foreground">SPORFLIX</span>
                       </Link>
                    </SheetTitle>
                 </SheetHeader>

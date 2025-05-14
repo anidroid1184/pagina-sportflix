@@ -1,3 +1,4 @@
+
 import type { Product, ProductCategory, ProductSize } from '@/types';
 
 const ALL_SIZES: ProductSize[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
@@ -197,7 +198,7 @@ export const products: Product[] = [
     category: 'T-Shirts',
     sizes: COMMON_SIZES,
     colors: ['Azul Petróleo', 'Negro', 'Gris Jaspeado'],
-    brand: 'Sporflix Basics',
+    brand: 'SPORFLIX Basics',
     stock: 130,
     rating: 4.4,
     numReviews: 75,
@@ -216,7 +217,7 @@ export const products: Product[] = [
     category: 'Sets',
     sizes: COMMON_SIZES, 
     colors: ['Negro', 'Gris Oscuro'], // Assuming black or dark grey from image
-    brand: 'Sporflix Active',
+    brand: 'SPORFLIX Active',
     stock: 50,
     rating: 4.7, // Arbitrary
     numReviews: 25, // Arbitrary

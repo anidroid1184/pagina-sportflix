@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google'; // Changed from Inter to Poppins
 import './globals.css';
@@ -15,10 +16,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Sporflix - Tu Equipo para el Éxito Deportivo',
-  description: 'En Sporflix, encuentra la mejor ropa y accesorios deportivos. Tu comodidad, tu deporte, tu estilo.',
+  title: 'SPORFLIX - Tu Equipo para el Éxito Deportivo',
+  description: 'En SPORFLIX, encuentra la mejor ropa y accesorios deportivos. Tu comodidad, tu deporte, tu estilo.',
   icons: {
-    icon: '/images/favicon.ico', // Assuming favicon is named favicon.ico and placed in public/images
+    icon: '/images/favicon.ico', 
     // apple: '/images/apple-touch-icon.png', // Example for apple touch icon
   },
 };

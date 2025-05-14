@@ -33,13 +33,13 @@ export default function HomePage() {
         />
         <div className="relative z-10 p-6 container mx-auto motion-safe:animate-fade-in-down">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
-            Bienvenido a Sporflix
+            Bienvenido a SPORFLIX
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-2 text-primary-foreground/90 drop-shadow-md">
             Tu tienda de ropa deportiva favorita.
           </p>
           <p className="text-xl sm:text-2xl md:text-3xl font-semibold mb-8 text-primary-foreground drop-shadow-md">
-            ✨ Tu comodidad, tu deporte, tu estilo. ✨
+            Tu comodidad, tu deporte, tu estilo.
           </p>
           <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-xl transform transition-transform hover:scale-105 text-lg px-8 py-6">
             <Link href="/catalog">
@@ -55,7 +55,7 @@ export default function HomePage() {
           <Info className="mx-auto h-12 w-12 text-primary mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Conócenos Mejor</h2>
           <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-8">
-            En Sporflix, nos apasiona el deporte y el bienestar. Ofrecemos prendas de alta calidad que combinan funcionalidad, estilo y comodidad para inspirarte a alcanzar tus metas.
+            En SPORFLIX, nos apasiona el deporte y el bienestar. Ofrecemos prendas de alta calidad que combinan funcionalidad, estilo y comodidad para inspirarte a alcanzar tus metas.
           </p>
           <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary/10">
             <Link href="/about">
