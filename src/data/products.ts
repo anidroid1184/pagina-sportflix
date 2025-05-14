@@ -5,11 +5,6 @@ const ALL_SIZES: ProductSize[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const COMMON_SIZES: ProductSize[] = ['S', 'M', 'L', 'XL'];
 const ALL_COLORS = ['Negro', 'Blanco', 'Rojo', 'Azul', 'Verde', 'Gris', 'Amarillo', 'Naranja', 'Rosado', 'Morado', 'Azul Petróleo', 'Gris Jaspeado'];
 
-const getRandomElements = <T>(arr: T[], count: number): T[] => {
-  const shuffled = [...arr].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-};
-
 export const products: Product[] = [
   {
     id: '1',
@@ -25,14 +20,6 @@ export const products: Product[] = [
     ],
     category: 'T-Shirts',
     sizes: COMMON_SIZES,
-    colors: getRandomElements(ALL_COLORS, 3),
-    brand: 'FitStyle Pro',
-    stock: 150,
-    rating: 4.5,
-    numReviews: 120,
-  },
-  {
-    id: '2',
     name: 'FlexFit Workout Shorts',
     slug: 'flexfit-workout-shorts',
     description: 'Stretchable and durable shorts for maximum flexibility.',
@@ -44,14 +31,6 @@ export const products: Product[] = [
     ],
     category: 'Shorts',
     sizes: COMMON_SIZES,
-    colors: getRandomElements(ALL_COLORS, 4),
-    brand: 'ActiveWear Co.',
-    stock: 200,
-    rating: 4.7,
-    numReviews: 95,
-  },
-  {
-    id: '3',
     name: 'CozyTech Fleece Hoodie',
     slug: 'cozytech-fleece-hoodie',
     description: 'Warm and comfortable hoodie for cool weather.',
@@ -65,14 +44,6 @@ export const products: Product[] = [
     ],
     category: 'Hoodies',
     sizes: ALL_SIZES,
-    colors: getRandomElements(ALL_COLORS, 2),
-    brand: 'Urban Comfort',
-    stock: 100,
-    rating: 4.8,
-    numReviews: 150,
-  },
-  {
-    id: '4',
     name: 'All-Weather Running Jacket',
     slug: 'all-weather-running-jacket',
     description: 'Water-resistant and windproof jacket for all conditions.',
@@ -139,14 +110,6 @@ export const products: Product[] = [
     ],
     category: 'Leggings',
     sizes: COMMON_SIZES,
-    colors: getRandomElements(ALL_COLORS, 3),
-    brand: 'ZenFit',
-    stock: 120,
-    rating: 4.8,
-    numReviews: 180,
-  },
-  {
-    id: '8',
     name: 'AeroSpeed Running Shoes',
     slug: 'aerospeed-running-shoes',
     description: 'Lightweight and responsive shoes for runners.',
@@ -159,14 +122,6 @@ export const products: Product[] = [
     ],
     category: 'Footwear',
     sizes: ['S', 'M', 'L', 'XL'], // Representing shoe sizes
-    colors: getRandomElements(ALL_COLORS, 3),
-    brand: 'Velocity Sports',
-    stock: 90,
-    rating: 4.7,
-    numReviews: 130,
-  },
-  {
-    id: '9',
     name: 'AeroCycle Biker Shorts',
     slug: 'aerocycle-biker-shorts',
     description: 'Comfortable and supportive biker shorts for cycling or fashion.',

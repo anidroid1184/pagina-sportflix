@@ -69,12 +69,11 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
           <Image 
             src="/images/logo.png" 
-            alt="SPORFLIX Logo" 
-            width={28} 
-            height={28} 
+            alt="SPORTFLIX Logo" 
+            width={100} 
+            height={100} 
             className="text-primary-foreground" 
           />
-          <span className="text-xl font-bold tracking-tight text-primary-foreground">SPORFLIX</span>
         </Link>
         
         {/* Desktop Navigation */}
