@@ -8,7 +8,7 @@ export default function AboutPage() {
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <header className="mb-12 text-center motion-safe:animate-fade-in-down">
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
-          Sobre SPORFLIX
+          Sobre SPORTFLIX
         </h1>
         <p className="mt-4 text-xl text-foreground/80">
           Conoce nuestra historia, misión y el equipo detrás de tu ropa deportiva favorita.
@@ -20,8 +20,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="relative h-64 md:h-full min-h-[300px] motion-safe:animate-fade-in">
               <Image
-                src="https://picsum.photos/seed/aboutus/800/600"
-                alt="Equipo de SPORFLIX trabajando"
+                src="https://placehold.co/800x600.png"
+                alt="Equipo de SPORTFLIX trabajando"
                 layout="fill"
                 objectFit="cover"
                 className="transition-transform duration-500 hover:scale-105"
@@ -34,7 +34,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent className="p-0 space-y-4 text-foreground/90">
                 <p>
-                  En SPORFLIX, nacimos de una pasión compartida por el deporte y el bienestar. Creemos que la ropa adecuada no solo mejora el rendimiento, sino que también inspira confianza y motivación.
+                  En SPORTFLIX, nacimos de una pasión compartida por el deporte y el bienestar. Creemos que la ropa adecuada no solo mejora el rendimiento, sino que también inspira confianza y motivación.
                 </p>
                 <p>
                   Desde nuestros humildes comienzos, nos hemos dedicado a seleccionar y crear prendas que combinan funcionalidad, estilo y comodidad, para que puedas enfocarte en alcanzar tus metas.

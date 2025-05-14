@@ -34,7 +34,7 @@ export default function DiscountsPage() {
       <header className="mb-12 text-center motion-safe:animate-fade-in-down">
         <Tag className="mx-auto h-16 w-16 text-accent mb-4" />
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
-          Ofertas Imperdibles en SPORFLIX
+          Ofertas Imperdibles en SPORTFLIX
         </h1>
         <p className="mt-4 text-xl text-foreground/80 max-w-2xl mx-auto">
           ¡Aprovecha nuestros descuentos especiales! Equipamiento de primera calidad a precios que no podrás resistir.

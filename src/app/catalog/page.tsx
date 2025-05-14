@@ -104,7 +104,7 @@ export default function CatalogPage() {
   return (
     <div className="container mx-auto py-8 md:py-12">
       <div className="mb-8 md:mb-12 text-center motion-safe:animate-fade-in-down">
-        <h1 className="text-4xl font-bold tracking-tight text-primary md:text-5xl">Catálogo de Productos SPORFLIX</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-primary md:text-5xl">Catálogo de Productos SPORTFLIX</h1>
         <p className="mt-3 text-lg text-foreground md:text-xl">
           Encuentra el equipamiento perfecto para tu estilo de vida activo.
         </p>
@@ -213,4 +213,3 @@ export default function CatalogPage() {
     </div>
   );
 }
-

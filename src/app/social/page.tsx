@@ -6,11 +6,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const socialLinks = [
-  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500', handle: '@SporflixOficial' },
-  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com', color: 'bg-blue-600', handle: '/Sporflix' },
-  { name: 'Twitter', icon: Twitter, href: 'https://twitter.com', color: 'bg-sky-500', handle: '@SporflixCol' },
-  { name: 'YouTube', icon: Youtube, href: 'https://youtube.com', color: 'bg-red-600', handle: 'Canal SPORFLIX' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: 'bg-sky-700', handle: 'SPORFLIX Colombia' },
+  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500', handle: '@SPORTFLIXOficial' },
+  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com', color: 'bg-blue-600', handle: '/SPORTFLIX' },
+  { name: 'Twitter', icon: Twitter, href: 'https://twitter.com', color: 'bg-sky-500', handle: '@SPORTFLIXCol' },
+  { name: 'YouTube', icon: Youtube, href: 'https://youtube.com', color: 'bg-red-600', handle: 'Canal SPORTFLIX' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: 'bg-sky-700', handle: 'SPORTFLIX Colombia' },
 ];
 
 export default function SocialPage() {
@@ -19,7 +19,7 @@ export default function SocialPage() {
       <header className="mb-12 text-center motion-safe:animate-fade-in-down">
         <Users className="mx-auto h-16 w-16 text-accent mb-4" />
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
-          Conéctate con la Comunidad SPORFLIX
+          Conéctate con la Comunidad SPORTFLIX
         </h1>
         <p className="mt-4 text-xl text-foreground/80 max-w-2xl mx-auto">
           Síguenos en nuestras redes sociales para ser parte de nuestra comunidad, enterarte de novedades, promociones y contenido exclusivo.
@@ -41,7 +41,7 @@ export default function SocialPage() {
               </CardHeader>
               <CardContent className="p-6 flex-grow flex flex-col items-center justify-center">
                 <p className="text-muted-foreground mb-1 text-sm">Encuéntranos como:</p>
-                <p className="text-lg font-medium text-primary mb-4">{social.handle}</p>
+                <p className="text-lg font-medium text-primary mb-4">{social.handle.replace('Sporflix', 'SPORTFLIX').replace('SPORFLIX', 'SPORTFLIX')}</p>
                 <Button asChild variant="outline" className="mt-auto border-primary text-primary hover:bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <Link href={social.href} target="_blank" rel="noopener noreferrer">
                     Visitar <Share2 className="ml-2 h-4 w-4" />
@@ -61,18 +61,18 @@ export default function SocialPage() {
             </CardHeader>
             <CardContent className="text-center">
                 <p className="text-lg text-foreground/80 mb-6 max-w-xl mx-auto">
-                    Comparte tus logros, tus looks deportivos favoritos y conecta con otros apasionados del deporte usando el hashtag <strong className="text-accent">#SPORFLIXStyle</strong>.
+                    Comparte tus logros, tus looks deportivos favoritos y conecta con otros apasionados del deporte usando el hashtag <strong className="text-accent">#SPORTFLIXStyle</strong>.
                 </p>
                 <div className="relative h-64 w-full max-w-3xl mx-auto rounded-lg overflow-hidden shadow-md">
                     <Image 
-                        src="https://picsum.photos/seed/socialcommunity/1000/400" 
-                        alt="Comunidad deportiva SPORFLIX" 
+                        src="https://placehold.co/1000x400.png"
+                        alt="Comunidad deportiva SPORTFLIX" 
                         layout="fill" 
                         objectFit="cover"
                         data-ai-hint="sports community"
                     />
                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                        <p className="text-4xl font-bold text-white p-4 bg-black/50 rounded-md">#SPORFLIXStyle</p>
+                        <p className="text-4xl font-bold text-white p-4 bg-black/50 rounded-md">#SPORTFLIXStyle</p>
                     </div>
                 </div>
             </CardContent>

@@ -72,7 +72,8 @@ export function Navbar() {
             alt="SPORTFLIX Logo" 
             width={100} 
             height={100} 
-            className="text-primary-foreground" 
+            className="h-auto" // Removed h-full, ensure aspect ratio is maintained by width/height props
+            priority
           />
         </Link>
         
@@ -157,12 +158,12 @@ export function Navbar() {
                      <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                         <Image 
                           src="/images/logo.png" 
-                          alt="SPORFLIX Logo" 
+                          alt="SPORTFLIX Logo" 
                           width={28} 
                           height={28}
                           className="text-primary-foreground"
                         />
-                        <span className="text-xl font-bold tracking-tight text-primary-foreground">SPORFLIX</span>
+                        <span className="text-xl font-bold tracking-tight text-primary-foreground">SPORTFLIX</span>
                       </Link>
                    </SheetTitle>
                 </SheetHeader>
@@ -240,4 +241,3 @@ export function Navbar() {
     </header>
   );
 }
-
