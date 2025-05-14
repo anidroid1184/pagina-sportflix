@@ -66,7 +66,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-primary text-primary-foreground shadow-md">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 h-full" onClick={() => setMobileMenuOpen(false)}>
+        <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
           <Image 
             src="/images/logo.png" 
             alt="SPORFLIX Logo" 
@@ -241,3 +241,4 @@ export function Navbar() {
     </header>
   );
 }
+
