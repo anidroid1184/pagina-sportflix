@@ -113,10 +113,10 @@ export default function CatalogPage() {
       <div className="mb-10 md:mb-12 rounded-lg overflow-hidden shadow-2xl">
         <div 
           className="relative h-64 md:h-80 lg:h-96 w-full bg-cover bg-center group"
-          style={{ backgroundImage: "url('https://picsum.photos/seed/sportbanner/1200/400')" }}
+          style={{ backgroundImage: "url('https://placehold.co/1200x400.png')" }}
           data-ai-hint="sports banner"
         >
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 flex flex-col items-center justify-center text-center p-4 motion-safe:animate-fade-in-up">
+          <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 transition-colors duration-300 flex flex-col items-center justify-center text-center p-4 motion-safe:animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">¡Nuevas Colecciones!</h2>
             <p className="text-base md:text-lg lg:text-xl text-primary-foreground/90 mb-6 md:mb-8 max-w-xl">
               Descubre lo último en moda deportiva. Rendimiento y estilo en cada prenda.
